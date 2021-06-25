@@ -1,0 +1,37 @@
+@mixin phone {
+  @media screen and (max-width: 420px) {
+    @content;
+  }
+}
+
+//Tab column;
+
+@mixin tabSize930 {
+  @media screen and (max-width: 930px) {
+    @content;
+  }
+}
+
+@mixin tabSize1030 {
+  @media screen and (max-width: 1030px) {
+    @content;
+  }
+}
+
+@mixin tabSize1444 {
+  @media screen and (max-width: 1444px) {
+    @content;
+  }
+}
+
+@mixin tabSize980 {
+  @media screen and (max-width: 980px) {
+    @content;
+  }
+}
+
+@mixin tabSize653 {
+  @media screen and (max-width: 653px) {
+    @content;
+  }
+}

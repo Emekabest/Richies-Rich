@@ -19,7 +19,7 @@ class ProductCards {
         }"  style="display:block" class = "linK">
                     <div class="content-sales-img-wrapper">
                         <img
-                            src="../image/${product.image}"
+                            src="./image/${product.image}"
                             class="content-sales-img" 
                             alt="${product.name}"
                         />
@@ -75,7 +75,6 @@ class ProductCards {
   }
 }
 
-document.hash;
 class BO_categoryProduct {
   static getCardsHTMLString(products) {
     let html;
@@ -84,7 +83,7 @@ class BO_categoryProduct {
       <div class="Ccontainer">
         <a id="/product/${product.slug}" class="Ccontainer_inner linK">
           <div class="Ccontainer_inner_img">
-            <img src="../image/${product.image}" alt="" />
+            <img src="./image/${product.image}" alt="" />
           </div>
           <div class="Ccontainer_inner_Product-details">
             <div class="Ccontainer_inner_Product-details_name">

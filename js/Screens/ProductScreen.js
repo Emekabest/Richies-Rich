@@ -364,7 +364,9 @@ class ProductScreen {
   }
 
   async fetchProduct() {
-    const allProducts = await get("http://localhost:5000/api/products");
+    const allProducts = await get(
+      "https://richies-rich1-commerce.herokuapp.com/api/products"
+    );
 
     const product = allProducts.find((product) => {
       return product.slug === this.slug;

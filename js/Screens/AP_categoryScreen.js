@@ -8,7 +8,9 @@ export const allProduct_category = {
     let i = [...categoryName];
     console.log(i[0]);
 
-    const allProducts = await get("http://localhost:5000/api/products");
+    const allProducts = await get(
+      "https://richies-rich1-commerce.herokuapp.com/api/products"
+    );
     const categoryItem = [];
 
     allProducts.forEach((x) => {

@@ -40,7 +40,9 @@ export const cartScreen = {
   csAfter_render() {},
 
   async render() {
-    const allProducts = await get("http://localhost:5000/api/products");
+    const allProducts = await get(
+      "https://richies-rich1-commerce.herokuapp.com/api/products"
+    );
 
     const request = parseRequest_url();
 

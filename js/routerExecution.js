@@ -3,12 +3,16 @@ import { homeScreen } from "./Screens/homeScreen.js";
 import { mainContainer_div } from "./index.js";
 import { productScreen } from "./Screens/ProductScreen.js";
 import { parseRequest_url } from "./utlis.js";
-import { cartScreen } from "./Screens/cartScreen.js";
+import { cartScreen, removeFromCart } from "./Screens/cartScreen.js";
 import { contactScreen } from "./Screens/contactScreen.js";
 import { ranScreen } from "./Screens/ranscreen.js";
 import { allProduct_category } from "./Screens/AP_categoryScreen.js";
 
 // import { html } from "./lit-html";
+
+const getLinkToHash = (link) => {
+  document.location.hash = link;
+};
 
 const routerExecution = {
   render: (cardHtml) => {
@@ -36,12 +40,24 @@ const routerExecution = {
       // console.log(await screen.render());
 
       mainContainer_div.innerHTML = await screen.render(cardHtml);
+
       const cartCardDel_div = document.querySelectorAll(
         ".cart-boxInner_Productcard_right_delete"
       );
-      console.log(Array.from(cartCardDel_div).length);
-      // console.log(cartCardDel_div);
-      // screen.csAfter_render();
+
+      Array.from(cartCardDel_div).forEach((del_btn) => {
+        del_btn.addEventListener("click", () => {
+          console.log(del_btn.id);
+          removeFromCart(del_btn.id);
+        });
+      });
+
+      const link = document.querySelectorAll(".linK");
+      Array.from(link).forEach((element) => {
+        element.addEventListener("click", (e) => {
+          getLinkToHash(element.id);
+        });
+      });
     };
 
     addEventListener("hashchange", () => {

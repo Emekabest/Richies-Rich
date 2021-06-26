@@ -187,11 +187,11 @@ export const allProduct_category = {
                   </div>
 
                   <ul class="customer-care-ul">
-                    <li class="customer-care-li"> <a href="contact.html">Contact Us</a> </li>
-                    <li class="customer-care-li"> <a href="">FAQ</a> </li>
-                    <li class="customer-care-li"> <a href="">Locate A Dealer</a> </li>
-                    <li class="customer-care-li"> <a href="">Delivery</a> </li>
-                    <li class="customer-care-li"> <a href="">Terms and conditions</a> </li>
+                    <li class="customer-care-li"> <a id="/contact" class="linK">Contact Us </a> </li>
+                    <li class="customer-care-li"> <a id="">FAQ</a></li>
+                    <li class="customer-care-li"> <a id="">Locate A Dealer</a> </li>
+                    <li class="customer-care-li"> <a id="">Delivery</a> </li>
+                    <li class="customer-care-li"> <a id="">Terms and conditions</a> </li>
                   </ul>
                 </div>
 

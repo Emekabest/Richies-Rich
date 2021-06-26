@@ -41,7 +41,8 @@ export const allProduct_category = {
         <div class="right-container_content-container">
           <div class="content">
 
-             <header class="content-headerbox">
+           
+            <header class="content-headerbox">
               <div class="content-headerbox-productName">
                 <div class="nav-open-btn">
                 
@@ -50,22 +51,23 @@ export const allProduct_category = {
 
                 <div class="content-headerbox-productName_name">
                   <span>
-                    <h1 class=""><a href="/#/">RICHY'SRICH</a></h1>
+                    <h1 class=""><a id="/" href = "/#/" class="linK">RICHY'SRICH</a></h1>
                   </span>
                 </div>
               </div>
 
               <div class="content-headerbox-right">
                 <div class="content-headerbox-right_menu-list">
-                  <ul>
-                    <li><a href="">PRODUCTS</a></li>
-                    <li><a href="">BOULDERS & SHURGS</a></li>
-                    <li><a href="">SHIRTS</a></li>
-                    <li><a href="">KIDS</a></li>
-                    <li><a href="">MATCHY-MATCHY</a></li>
-                    <li><a href="/#/carts/">CARTS</a></li>
-                    <li><a href="">EXCLUSIVE OFFER</a></li>
-                <li><a href="/#/contact/">CONTACT</a></li>
+                 <ul>
+                    <li><a id="/" href = "javascript:void(0)" class="linK">PRODUCTS</a></li>
+                    <li><a id="" href = "javascript:void(0)"   class="linK" >BOULDERS & SHURGS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
+                    <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
+                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
+                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
+
                   </ul>
                 </div>
               
@@ -187,7 +189,7 @@ export const allProduct_category = {
                   </div>
 
                   <ul class="customer-care-ul">
-                    <li class="customer-care-li"> <a id="/contact" class="linK">Contact Us </a> </li>
+                    <li class="customer-care-li"> <a id="/contact" class=linK>Contact Us </a> </li>
                     <li class="customer-care-li"> <a id="">FAQ</a></li>
                     <li class="customer-care-li"> <a id="">Locate A Dealer</a> </li>
                     <li class="customer-care-li"> <a id="">Delivery</a> </li>

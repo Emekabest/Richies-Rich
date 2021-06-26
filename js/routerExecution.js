@@ -47,7 +47,7 @@ const routerExecution = {
 
       Array.from(cartCardDel_div).forEach((del_btn) => {
         del_btn.addEventListener("click", () => {
-          console.log(del_btn.id);
+          console.log(del_btn);
           removeFromCart(del_btn.id);
         });
       });
@@ -55,6 +55,8 @@ const routerExecution = {
       const link = document.querySelectorAll(".linK");
       Array.from(link).forEach((element) => {
         element.addEventListener("click", (e) => {
+          element.href = "";
+          console.log(element.href);
           getLinkToHash(element.id);
         });
       });

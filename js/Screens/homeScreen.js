@@ -18,6 +18,7 @@ export const homeScreen = {
         }) => {
           const categoryName = children[0].textContent.trim();
           localStorage.setItem("category-name", categoryName);
+          Vbtn.href = "";
           document.location.hash = "/APcategory";
         }
       );
@@ -57,7 +58,7 @@ export const homeScreen = {
 
                 <div class="content-headerbox-productName_name">
                   <span>
-                    <h1 class=""><a id="/" class="linK">RICHY'SRICH</a></h1>
+                    <h1 class=""><a id="/" href = "/#/" class="linK">RICHY'SRICH</a></h1>
                   </span>
                 </div>
               </div>
@@ -65,14 +66,14 @@ export const homeScreen = {
               <div class="content-headerbox-right">
                 <div class="content-headerbox-right_menu-list">
                  <ul>
-                    <li><a id="/" class="linK">PRODUCTS</a></li>
-                    <li><a id="" class="linK" >BOULDERS & SHURGS</a></li>
-                    <li><a id="" class="linK">SHIRTS</a></li>
-                    <li><a id="" class="linK">KIDS</a></li>
-                    <li><a id="" class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts" class="linK">CARTS</a></li>
-                    <li><a id="" class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact" class="linK">CONTACT</a></li>
+                    <li><a id="/" href = "javascript:void(0)" class="linK">PRODUCTS</a></li>
+                    <li><a id="" href = "javascript:void(0)"   class="linK" >BOULDERS & SHURGS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
+                    <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
+                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
+                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
 
                   </ul>
                 </div>

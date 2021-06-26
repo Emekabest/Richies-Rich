@@ -168,24 +168,24 @@ class ProductScreen {
                 <section class="left-bar">
                   <div class="left-barTop">
                     <div class="left-barTopimg">
-                      <img src="../image/${this.product.image}" alt="${
+                      <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
                     </div>
                     <div class="left-barTopimg">
-                      <img src="../image/${this.product.image}" alt="${
-      this.product.name
-    }" />
-
-                    </div>
-                    <div class="left-barTopimg">
-                       <img src="../image/${this.product.image}" alt="${
+                      <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
 
                     </div>
                     <div class="left-barTopimg">
-                       <img src="../image/${this.product.image}" alt="${
+                       <img src="./image/${this.product.image}" alt="${
+      this.product.name
+    }" />
+
+                    </div>
+                    <div class="left-barTopimg">
+                       <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
 
@@ -194,7 +194,7 @@ class ProductScreen {
                   <div class="left-barButtom">
 
                     <div class="left-barButtomimage">
-                     <img src="../image/${this.product.image}" alt="${
+                     <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
                       </div>
@@ -208,24 +208,24 @@ class ProductScreen {
  <section class="left-bar2">
                   <div class="left-bar2Top">
                     <div class="left-bar2Topimg">
-                      <img src="../image/${this.product.image}" alt="${
+                      <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
                     </div>
                     <div class="left-bar2Topimg">
-                      <img src="../image/${this.product.image}" alt="${
+                      <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
 
                     </div>
                     <div class="left-bar2Topimg">
-                       <img src="../image/${this.product.image}" alt="${
+                       <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />                                               
 
                     </div>
                     <div class="left-bar2Topimg">
-                       <img src="../image/${this.product.image}" alt="${
+                       <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
 
@@ -233,7 +233,7 @@ class ProductScreen {
                  
                       <div class="left-bar2Topimg left-bar2-buttomimg">
 
-                     <img src="../image/${this.product.image}" alt="${
+                     <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
                       </div>

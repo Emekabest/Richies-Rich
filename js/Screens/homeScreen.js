@@ -18,7 +18,6 @@ export const homeScreen = {
         }) => {
           const categoryName = children[0].textContent.trim();
           localStorage.setItem("category-name", categoryName);
-          Vbtn.href = "";
           document.location.hash = "/APcategory";
         }
       );
@@ -33,23 +32,23 @@ export const homeScreen = {
         <div class="nav-close-btn">
           <i class="far fa-times-circle"></i>
         </div>
-     <ul class="navul-content">
+       <ul class="navul-content">
           <li class="navli-content"><a class="linK" id="/">PRODUCTS</a></li>
           <li class="navli-content"><a >BOULDERS & SHRUGS</a></li>
           <li class="navli-content"><a >SHIRTS</a></li>
           <li class="navli-content"><a >KIDS</a></li>
           <li class="navli-content"><a >MATCHY-MATCHY</a></li>
           <li><a class="linK" id="/carts"> CARTS</a></li>
-          <li class="navli-content"><a >EXCLUSIVE OFFER</a></li>
-          <li><a class="linK" id="/contact">CONTACT</a></li>
+          <li class="navli-content"><a href="#">EXCLUSIVE OFFER</a></li>
+          <li><a class = "linK" id="/contact">CONTACT</a></li>
         </ul>
       </nav>
 
-      <div class="right-Container">
-        <div class="content-container">
+      <div class="right-container">
+        <div class="right-container_content-container">
           <div class="content">
 
-            <header class="content-headerbox">
+           <header class="content-headerbox">
               <div class="content-headerbox-productName">
                 <div class="nav-open-btn">
                 
@@ -190,11 +189,11 @@ export const homeScreen = {
                   </div>
 
                   <ul class="customer-care-ul">
-                    <li class="customer-care-li"> <a id="/contact" class="linK">Contact Us </a> </li>
-                    <li class="customer-care-li"> <a id="">FAQ</a> </li>
-                    <li class="customer-care-li"> <a id="">Locate A Dealer</a> </li>
-                    <li class="customer-care-li"> <a id="">Delivery</a> </li>
-                    <li class="customer-care-li"> <a id="">Terms and conditions</a> </li>
+                    <li class="customer-care-li"> <a href="contact.html">Contact Us</a> </li>
+                    <li class="customer-care-li"> <a href="">FAQ</a> </li>
+                    <li class="customer-care-li"> <a href="">Locate A Dealer</a> </li>
+                    <li class="customer-care-li"> <a href="">Delivery</a> </li>
+                    <li class="customer-care-li"> <a href="">Terms and conditions</a> </li>
                   </ul>
                 </div>
 
@@ -208,6 +207,7 @@ export const homeScreen = {
                     <li class="about-li"> <a href="">Career</a> </li>
                     <li class="about-li"> <a href="">Testimonials</a> </li>
                     <li class="about-li"> <a href="">Access</a> </li>
+                    <!---   <li class="about-li"> <a href="404.html">error-page</a> </li> -->
                   </ul>
                 </div>
 

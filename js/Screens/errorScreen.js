@@ -7,14 +7,14 @@ export const errorPageScreen = {
         </div>
 
         <ul class="navul-content">
-          <li class="navli-content"><a href="#">PRODUCTS</a></li>
-          <li class="navli-content"><a href="#">BOULDERS & SHRUGS</a></li>
-          <li class="navli-content"><a href="#">SHIRTS</a></li>
-          <li class="navli-content"><a href="#">KIDS</a></li>
-          <li class="navli-content"><a href="#">MATCHY-MATCHY</a></li>
-          <li class="navli-content"><a href="#">CART</a></li>
+          <li class="navli-content"><a href="" class="linK" data-link="/">PRODUCTS</a></li>
+          <li class="navli-content"><a href="#" >BOULDERS & SHRUGS</a></li>
+          <li class="navli-content"><a href="#" >SHIRTS</a></li>
+          <li class="navli-content"><a href="#" >KIDS</a></li>
+          <li class="navli-content"><a href="#" >MATCHY-MATCHY</a></li>
+          <li><a href="" class="linK" data-link="/carts"> CARTS</a></li>
           <li class="navli-content"><a href="#">EXCLUSIVE OFFER</a></li>
-          <li class="navli-content"><a href="contact.html">CONTACT</a></li>
+          <li><a href="" class = "linK" data-link="/contact">CONTACT</a></li>
         </ul>
       </nav>
 
@@ -28,11 +28,12 @@ export const errorPageScreen = {
                 <div class="nav-open-btn">
                 
                   <i class="fas fa-bars"></i>
+
                 </div>
 
                 <div class="content-headerbox-productName_name">
                   <span>
-                    <h1 class=""><a href="/#/">RICHY'SRICH</a></h1>
+                    <h1 class=""><a href="/" class = "linK">RICHY'SRICH</a></h1>
                   </span>
                 </div>
               </div>
@@ -40,15 +41,18 @@ export const errorPageScreen = {
               <div class="content-headerbox-right">
                 <div class="content-headerbox-right_menu-list">
                   <ul>
-                    <li><a href="">PRODUCTS</a></li>
-                    <li><a href="">BOULDERS & SHURGS</a></li>
-                    <li><a href="">SHIRTS</a></li>
-                    <li><a href="">KIDS</a></li>
-                    <li><a href="">MATCHY-MATCHY</a></li>
-                    <li><a href="/#/carts/">CARTS</a></li>
-                    <li><a href="">EXCLUSIVE OFFER</a></li>
-                <li><a href="/#/contact/">CONTACT</a></li>
+
+                    <li><a href="" data-link="/" class="linK">PRODUCTS</a></li>
+                    <li><a href="" data-link="" class="linK" >BOULDERS & SHURGS</a></li>
+                    <li><a href="" data-link="" class="linK">SHIRTS</a></li>
+                    <li><a href="" data-link="" class="linK">KIDS</a></li>
+                    <li><a href="" data-link="" class="linK">MATCHY-MATCHY</a></li>
+                    <li><a href="/#/carts/"   data-link="/carts"  class="linK">CARTS</a></li>
+                    <li><a href="" data-link="" class="linK">EXCLUSIVE OFFER</a></li>
+                    <li><a href="/#/contact/" data-link="/contact" class="linK">CONTACT</a></li>
+
                   </ul>
+                  
                 </div>
               
                 <div class="menu-bar"> <i class="fas fa-ellipsis-v"></i> </div>

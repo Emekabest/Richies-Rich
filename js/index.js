@@ -115,29 +115,6 @@ awaitTimeout(psAfter_render);
 
 //#################################################################################
 
-//CartScreenRender && afterRender usabilities
-//CartScreenRender && afterRender usabilities
-//CartScreenRender && afterRender usabilities
-
-const cartCardDel_div = document.querySelectorAll(
-  ".cart-boxInner_Productcard_right_delete"
-);
-
-console.log(cartCardDel_div);
-
-Array.from(cartCardDel_div).forEach((del_btn) => {
-  del_btn.addEventListener("click", () => {
-    console.log("cool");
-    removeFromCart(del_btn.id);
-  });
-});
-
-//CartScreenRender && afterRender usabilities
-//CartScreenRender && afterRender usabilities
-//CartScreenRender && afterRender usabilities
-
-//#################################################################################
-
 // export { mainArea_main };
 // export { mainContainer_div };
 

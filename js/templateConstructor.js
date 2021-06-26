@@ -14,7 +14,9 @@ class ProductCards {
       products.forEach((product) => {
         cardsHTMLString += `
             <div class="container-sales">
-                <a href="/#/product/${product.slug}" style="display:block">
+                <a id="/product/${
+                  product.slug
+                }"  style="display:block" class = "linK">
                     <div class="content-sales-img-wrapper">
                         <img
                             src="../image/${product.image}"
@@ -80,7 +82,7 @@ class BO_categoryProduct {
     products.forEach((product) => {
       html += `
       <div class="Ccontainer">
-        <a href="#/product/${product.slug}" class="Ccontainer_inner">
+        <a id="/product/${product.slug}" class="Ccontainer_inner linK">
           <div class="Ccontainer_inner_img">
             <img src="../image/${product.image}" alt="" />
           </div>

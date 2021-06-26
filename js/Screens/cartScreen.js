@@ -69,7 +69,7 @@ export const cartScreen = {
               <div class="cart-boxInner_Productcard_left Productcard_inner">
                 <div class="cart-boxInner_Productcard_leftInner-img">
 
-                    <img src="../image/${cartItem.image}" alt="">
+                    <img src="./image/${cartItem.image}" alt="">
 
                 </div>
 

@@ -1,9 +1,20 @@
-import routerExecution from "./routerExecution.js";
+import { checkAwaitTimeout, routerExecution } from "./routerExecution.js";
 import cards_section from "./cards_section.js";
 import { Product } from "./Screens/ProductScreen.js";
 import { ProductCards } from "./templateConstructor.js";
 import { removeFromCart } from "./Screens/cartScreen.js";
 import { awaitTimeout } from "./app_functionalities.js";
+
+console.log(checkAwaitTimeout);
+
+const Interval = (boolen, FuncTion) => {
+  const TimeOut = setInterval(() => {
+    if (boolen) {
+      FuncTion();
+      clearInterval(TimeOut);
+    }
+  }, 1000);
+};
 
 const cardHtml = await cards_section.render();
 
@@ -49,7 +60,6 @@ function homeScreenusabilities() {
   const menu_bar_li = document.querySelector(".menu-bar");
   const overlay_div = document.querySelector(".overlay");
   const menuList_div = document.querySelector(".menu-list");
-
   //ProductPage.....
 
   const productMainScreen_div = document.querySelector(".productMain-content");
@@ -83,8 +93,10 @@ function homeScreenusabilities() {
   productMainScreen_div.style.marginTop = header_height + "px";
   productMainScreen_div.style.paddingTop = header_height - 26 + "px";
 }
-
 awaitTimeout(homeScreenusabilities);
+
+Interval(checkAwaitTimeout, homeScreenusabilities);
+
 //Homescreen usabilities
 //Homescreen usabilities
 //Homescreen usabilities
@@ -102,13 +114,24 @@ const psAfter_render = () => {
     console.log(btn);
     btn
       ? btn.addEventListener("click", () => {
-          console.log("sup");
           document.location.hash = `/carts/${Product.slug}`;
+
+          localStorage.setItem("num", "101");
         })
       : "";
   });
 };
-awaitTimeout(psAfter_render);
+// awaitTimeout(psAfter_render);
+
+Interval(checkAwaitTimeout, psAfter_render);
+
+// const TimeOut = setInterval(() => {
+//   if (checkAwaitTimeout) {
+//     psAfter_render();
+
+//     clearInterval(TimeOut);
+//   }
+// }, 700);
 //productScreen usabilities
 //productScreen usabilities
 //productScreen usabilities

@@ -9,6 +9,7 @@ import { ranScreen } from "./Screens/ranscreen.js";
 import { allProduct_category } from "./Screens/AP_categoryScreen.js";
 
 // import { html } from "./lit-html";
+let checkAwaitTimeout = false;
 
 const getLinkToHash = (link) => {
   document.location.hash = link;
@@ -36,11 +37,15 @@ const routerExecution = {
 
       const screen = route[parseUrl] ? route[parseUrl] : errorPageScreen;
       // const Page = await screen.render();
-
+      const c = async () => {
+        const RenderScreen = screen.render(cardHtml);
+        checkAwaitTimeout = true;
+        return RenderScreen;
+      };
       // console.log(await screen.render());
 
-      mainContainer_div.innerHTML = await screen.render(cardHtml);
-
+      mainContainer_div.innerHTML = await c();
+      // console.log(Screen);
       const cartCardDel_div = document.querySelectorAll(
         ".cart-boxInner_Productcard_right_delete"
       );
@@ -71,4 +76,4 @@ const routerExecution = {
   },
 };
 
-export default routerExecution;
+export { routerExecution, checkAwaitTimeout };

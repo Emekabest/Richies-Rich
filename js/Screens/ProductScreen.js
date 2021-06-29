@@ -304,8 +304,7 @@ class ProductScreen {
 
                     <div class="right-bar2Content-left_Price-tag">
                      <span class= "right-bar2Content-left_Price-tag-discount" >
-                        <h1 style="  color: #003d59">Discount: 
-                        %</h1>
+                        <h1 style="  color: #003d59">   </h1>
                       </span>
                       <span class = "right-bar2Content-left_Price-tag-recent">
                         <h1 style="color:#540a0a; text-decoration:line-through">Price: ${currency_sign(
@@ -325,7 +324,7 @@ class ProductScreen {
                       <div class="right-bar2Content-left_Product-details_image-tag">
                         <div class="right-bar2Content-left_image-tag-inner">
                           <div class="right-bar2Content-left_image">
-                            <img src="../image/${this.product.image}" alt="${
+                            <img src="./image/${this.product.image}" alt="${
       this.product.name
     }" />
                           </div>
@@ -364,9 +363,11 @@ class ProductScreen {
   }
 
   async fetchProduct() {
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const herokuServer =
+      "https://richies-rich1-commerce.herokuapp.com/api/products";
+    const localServer = "http://localhost:5000/api/products";
+
+    const allProducts = await get(herokuServer, localServer);
 
     const product = allProducts.find((product) => {
       return product.slug === this.slug;

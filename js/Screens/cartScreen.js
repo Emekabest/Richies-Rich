@@ -6,7 +6,6 @@ import { getDiscount } from "../app_functionalities.js";
 const addToCart = (item, forceUpdate = false) => {
   let cartItems = getCartItems();
   console.log(item);
-  // item.getDiscount();
 
   const exitItem = cartItems.find((x) => x.slug === item.slug);
 
@@ -21,9 +20,9 @@ const addToCart = (item, forceUpdate = false) => {
 
 export const removeFromCart = async (slug) => {
   console.log(slug);
-  const filter = getCartItems().filter((x) => x.slug !== slug);
+  const filtered = getCartItems().filter((x) => x.slug !== slug);
 
-  setCartItems(filter);
+  setCartItems(filtered);
 
   console.log(getCartItems());
 
@@ -40,9 +39,11 @@ export const cartScreen = {
   csAfter_render() {},
 
   async render() {
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const herokuServer =
+      "https://richies-rich1-commerce.herokuapp.com/api/products";
+    const localServer = "http://localhost:5000/api/products";
+
+    const allProducts = await get("http://localhost:5000/api/products");
 
     const request = parseRequest_url();
 
@@ -125,7 +126,7 @@ export const cartScreen = {
 
       return mainCartItemsString;
     };
-    console.log("cartScreen");
+    console.log("kidding me?");
 
     return `
     <div class="container">

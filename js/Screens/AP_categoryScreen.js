@@ -5,12 +5,12 @@ export const allProduct_category = {
   async render() {
     const categoryName = localStorage.getItem("category-name");
 
-    let i = [...categoryName];
-    console.log(i[0]);
+    const herokuServer =
+      "https://richies-rich1-commerce.herokuapp.com/api/products";
+    const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const allProducts = await get(herokuServer, localServer);
+
     const categoryItem = [];
 
     allProducts.forEach((x) => {

@@ -13,8 +13,12 @@ export const getDiscount = (recent_price, discount_price) => {
   return Math.floor(recent_price - discount);
 };
 
-export const awaitTimeout = (code) => {
+export const awaitTimeout = (code, params) => {
   return setTimeout(() => {
-    code();
-  }, 100);
+    if (params) {
+      code(params);
+    } else {
+      code();
+    }
+  }, 1000);
 };

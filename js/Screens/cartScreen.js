@@ -141,9 +141,9 @@ export const cartScreen = {
           <li class="navli-content"><a >SHIRTS</a></li>
           <li class="navli-content"><a >KIDS</a></li>
           <li class="navli-content"><a >MATCHY-MATCHY</a></li>
-          <li><a class="linK" id="/carts"> CARTS</a></li>
-          <li class="navli-content"><a >EXCLUSIVE OFFER</a></li>
-          <li><a class="linK" id="/contact">CONTACT</a></li>
+             <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
         </ul>
       </nav>
 
@@ -175,9 +175,9 @@ export const cartScreen = {
                     <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                        <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
                   </ul>
                 </div>
@@ -189,7 +189,7 @@ export const cartScreen = {
                   <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                  <a href="login.html">
+                <a href="/login" class="linK" id="/login"> 
                     <div
                       class="content-headerbox-right-register-login-user-fa"
                     >
@@ -209,7 +209,7 @@ export const cartScreen = {
                   <!---Sign up Zone -->
 
                   <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div
                       class="content-headerbox-right-register-signUp-user-fa"
                     >
@@ -228,16 +228,16 @@ export const cartScreen = {
               </div>
             </header>
 
-            <!-- Main content goes here  -->
+            <!---  content goes here -->
 
             <div class="menu-list">
           
-               <div class="content-headerbox-right2-register">
+              <div class="content-headerbox-right2-register">
 
                 <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                    <a href="login.html">
+                  <a href="/login" class="linK" id="/login"> 
                       <div class="content-headerbox-right-register-login-user-fa">                                                   
                         <i class="fas fa-user"></i>
                         <h6>Login</h6>
@@ -253,7 +253,7 @@ export const cartScreen = {
                 <!---Sign up Zone -->
 
                 <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div class="content-headerbox-right-register-signUp-user-fa">
                       <i class="fas fa-user-plus"></i>
                       <h6>Register</h6>
@@ -264,7 +264,7 @@ export const cartScreen = {
                     </div>
                   </a>
                </div>
-              </div>
+             </div>
             </div> 
             
             <div class="productMain-content">
@@ -287,7 +287,7 @@ ${
  
             <h3>Subtotal (${cartItemsArry.reduce((a, c) => a + c.qty, 0)} ${
         cartItemsArry.length <= 1 ? `item` : `items`
-      }):&#8358 ${cartItemsArry.reduce((a, c) => a + c.main_price, 0)}</h3>
+      }):&#8358 ${cartItemsArry.reduce((a, c) => a + c.main_price, 0)}.00</h3>
 
           </section>
           <section class="checkout-box_btn">
@@ -298,8 +298,8 @@ ${
     : `<div class = "productMain-content-empty"> 
     
       <div class = "productMain-content-emptyInner">
-     <i class="fab fa-wpexplorer"></i>
-       <h1>Cart is empty</h1>
+<i class="fas fa-shopping-basket"></i>
+ <h1>Cart is empty</h1>
        <a class="linK" id="/">go shopping </a>
       </div>
       </div>`

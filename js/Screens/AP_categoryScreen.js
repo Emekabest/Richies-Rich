@@ -33,7 +33,7 @@ export const allProduct_category = {
           <li class="navli-content"><a href="#">SHIRTS</a></li>
           <li class="navli-content"><a href="#">KIDS</a></li>
           <li class="navli-content"><a href="#">MATCHY-MATCHY</a></li>
-          <li><a href="/#/carts/">CARTS</a></li>
+          <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
           <li class="navli-content"><a href="#">EXCLUSIVE OFFER</a></li>
           <li><a href="/#/contact/">CONTACT</a></li>
         </ul>
@@ -66,9 +66,9 @@ export const allProduct_category = {
                     <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                 <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
                   </ul>
                 </div>

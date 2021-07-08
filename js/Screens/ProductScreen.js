@@ -32,16 +32,15 @@ class ProductScreen {
           <li class="navli-content"><a >SHIRTS</a></li>
           <li class="navli-content"><a >KIDS</a></li>
           <li class="navli-content"><a >MATCHY-MATCHY</a></li>
-          <li><a class="linK" id="/carts"> CARTS</a></li>
-          <li class="navli-content"><a >EXCLUSIVE OFFER</a></li>
-          <li><a class="linK" id="/contact">CONTACT</a></li>
+          <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
+          <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
+          <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
         </ul>
       </nav>
 
       <div class="right-Container">
         <div class="content-container">
           <div class="content">
-
           
             <header class="content-headerbox">
               <div class="content-headerbox-productName">
@@ -65,9 +64,9 @@ class ProductScreen {
                     <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                    <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
                   </ul>
                 </div>
@@ -79,7 +78,7 @@ class ProductScreen {
                   <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                  <a href="login.html">
+                 <a href="/login" class="linK" id="/login"> 
                     <div
                       class="content-headerbox-right-register-login-user-fa"
                     >
@@ -99,7 +98,7 @@ class ProductScreen {
                   <!---Sign up Zone -->
 
                   <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div
                       class="content-headerbox-right-register-signUp-user-fa"
                     >
@@ -117,10 +116,8 @@ class ProductScreen {
                 </div>
               </div>
             </header>
-  
-              
-              <!-- Main content goes here  -->
-      
+
+            <!---  content goes here -->
 
             <div class="menu-list">
           
@@ -129,7 +126,7 @@ class ProductScreen {
                 <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                    <a href="login.html">
+                  <a href="/login" class="linK" id="/login"> 
                       <div class="content-headerbox-right-register-login-user-fa">                                                   
                         <i class="fas fa-user"></i>
                         <h6>Login</h6>
@@ -145,7 +142,7 @@ class ProductScreen {
                 <!---Sign up Zone -->
 
                 <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div class="content-headerbox-right-register-signUp-user-fa">
                       <i class="fas fa-user-plus"></i>
                       <h6>Register</h6>
@@ -157,9 +154,7 @@ class ProductScreen {
                   </a>
                </div>
              </div>
-            </div> 
-            
-
+            </div>
 
             <div class="productMain-content">
 

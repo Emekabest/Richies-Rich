@@ -33,6 +33,10 @@
     grid-template-columns: repeat(2, 262px);
   }
 
+  @include tabSize600 {
+    grid-template-columns: repeat(1, 262px);
+  }
+
   .Ccontainer {
     //   height: 300px
     // margin: 25px 100px;
@@ -57,6 +61,11 @@
         @include tabSize653 {
           height: 270px;
           width: 230px;
+        }
+
+        @include phoneSize430 {
+          height: 240px;
+          width: 200px;
         }
       }
       &_Product-details {

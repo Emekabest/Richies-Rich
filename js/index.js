@@ -21,7 +21,7 @@ const cardHtml = await cards_section.render();
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
 
-// setTimeout(() => {
+// setTimeout(() => {x
 
 // }, 1000);
 
@@ -93,7 +93,7 @@ function homeScreenusabilities() {
   productMainScreen_div.style.marginTop = header_height + "px";
   productMainScreen_div.style.paddingTop = header_height - 26 + "px";
 }
-awaitTimeout(homeScreenusabilities);
+// awaitTimeout(homeScreenusabilities);
 
 Interval(checkAwaitTimeout, homeScreenusabilities);
 

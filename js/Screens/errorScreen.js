@@ -47,9 +47,9 @@ export const errorPageScreen = {
                     <li><a href="" data-link="" class="linK">SHIRTS</a></li>
                     <li><a href="" data-link="" class="linK">KIDS</a></li>
                     <li><a href="" data-link="" class="linK">MATCHY-MATCHY</a></li>
-                    <li><a href="/#/carts/"   data-link="/carts"  class="linK">CARTS</a></li>
-                    <li><a href="" data-link="" class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a href="/#/contact/" data-link="/contact" class="linK">CONTACT</a></li>
+                         <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
+                    <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
                   </ul>
                   

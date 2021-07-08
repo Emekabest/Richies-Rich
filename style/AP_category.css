@@ -44,6 +44,13 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .main-Ccontainer {
+    -ms-grid-columns: (262px)[1];
+        grid-template-columns: repeat(1, 262px);
+  }
+}
+
 .main-Ccontainer .Ccontainer {
   display: -ms-grid;
   display: grid;
@@ -74,6 +81,13 @@
   .main-Ccontainer .Ccontainer .Ccontainer_inner_img {
     height: 270px;
     width: 230px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .main-Ccontainer .Ccontainer .Ccontainer_inner_img {
+    height: 240px;
+    width: 200px;
   }
 }
 

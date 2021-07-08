@@ -1,34 +1,32 @@
-// import { html } from "./lit-html";
-
+import { login } from "../api.js";
 import { awaitTimeout } from "../app_functionalities.js";
-import { get } from "../http.js";
 
-export const homeScreen = {
-  after_render() {
-    const viewMore_p = document.querySelectorAll(".sales-category-view-more");
-    viewMore_p.forEach((Vbtn) => {
-      Vbtn.addEventListener(
-        "click",
-        ({
-          target: {
-            parentNode: {
-              parentNode: { children },
-            },
-          },
-        }) => {
-          const categoryName = children[0].textContent.trim();
-          localStorage.setItem("category-name", categoryName);
-          document.location.hash = "/APcategory";
+export const Login = {
+  async after_render() {
+    const btn = document
+      .querySelector(".Form")
+      .addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const data = await login({
+          email: document.querySelector("#email").value,
+          password: document.querySelector("#password").value,
+        });
+
+        if (data.error) {
+          alert(data.error);
+        } else {
+          alert("Good");
         }
-      );
-    });
+      });
   },
 
-  render(cardHtml) {
+  render() {
     awaitTimeout(this.after_render);
 
-    return ` <div class="container">
-      <nav class="nav">
+    return `
+    <div class = "container">
+     <nav class="nav">
         <div class="nav-close-btn">
           <i class="far fa-times-circle"></i>
         </div>
@@ -38,9 +36,9 @@ export const homeScreen = {
           <li class="navli-content"><a >SHIRTS</a></li>
           <li class="navli-content"><a >KIDS</a></li>
           <li class="navli-content"><a >MATCHY-MATCHY</a></li>
-          <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
-          <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-          <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
+          <li><a class="linK" id="/carts"> CARTS</a></li>
+          <li class="navli-content"><a href="#">EXCLUSIVE OFFER</a></li>
+          <li><a class = "linK" id="/contact">CONTACT</a></li>
         </ul>
       </nav>
 
@@ -70,7 +68,7 @@ export const homeScreen = {
                     <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                        <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
+                      <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
                     <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
@@ -160,75 +158,47 @@ export const homeScreen = {
                   </a>
                </div>
              </div>
-            </div> 
+            </div>
             
             <div class="productMain-content">
-              <main class="main-area"> ${
-                cardHtml ? cardHtml.replace("undefined", "") : ""
-              } </main>
+
+<div class="Main-container">
+      <div class="Main-container-login-container">
+        <center><h2>Login</h2></center>
+
+        <div class="Main-container-login-containerInner">
+          <form class = "Form">
+            <div class="main-input mian-container-login-containerInner-email">
+              <input type="email" placeholder="Email" name="email"
+                id="email"
+              />
             </div>
 
-            <footer class="footer">
-              <div class="footer-container">
-                <div class="label">
-                  <div class="label-logo-name">
-                    <h3 class="label-logo-name-h3">Richie'sRich</h3>
-                  </div>
+            <div
+              class="main-input mian-container-login-containerInner-password"
+            >
+              <input
+                id="password"
+                type="password"
+                class="password"
+                placeholder="Password"
+                name="password"
+              />
+            </div>
 
-                  <div class="label-logo-media">
-                    <a href="" class="fab fa-facebook mediafont"></a>
-                    <a href="" class="fab fa-twitter mediafont"></a>
-                    <a href="" class="fab fa-instagram mediafont"></a>
-                    <a href="" class="fab fa-whatsapp mediafont"></a>
-                  </div>
-                </div>
-
-                <div class="customer-care">
-                  <div class="customer-care-support">
-                    <h5 class="customer-care-support-h5">Support</h5>
-                  </div>
-
-                  <ul class="customer-care-ul">
-                    <li class="customer-care-li"> <a href="contact.html">Contact Us</a> </li>
-                    <li class="customer-care-li"> <a href="">FAQ</a> </li>
-                    <li class="customer-care-li"> <a href="">Locate A Dealer</a> </li>
-                    <li class="customer-care-li"> <a href="">Delivery</a> </li>
-                    <li class="customer-care-li"> <a href="">Terms and conditions</a> </li>
-                  </ul>
-                </div>
-
-                <div class="about">
-                  <div class="about-name">
-                    <h5 class="about-name-h5">Richie'sRich</h5>
-                  </div>
-
-                  <ul class="about-ul">
-                    <li class="about-li"> <a href="">About Us</a> </li>
-                    <li class="about-li"> <a href="">Career</a> </li>
-                    <li class="about-li"> <a href="">Testimonials</a> </li>
-                    <li class="about-li"> <a href="">Access</a> </li>
-                    <!---   <li class="about-li"> <a href="404.html">error-page</a> </li> -->
-                  </ul>
-                </div>
-
-                <div class="footer-latest-register">
-                  <div class="footer-latest-div">
-                    <i class="far fa-envelope latestfont">
-                      <span
-                        >Stay up to date on the latest from Richies Rich</span
-                      >
-                    </i>
-                  </div>
-
-                  <div class="footer-latest-btn-div">
-                     <a href="signup.html"><button class="footer-latest-btn">Sign Up</button></a>
-                  </div>
-                </div>
-              </div>
-            </footer>
-          </div>
+    
+            <div class="form-btn">
+              <button class="Btn">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>`;
+    </div>
+    </div>
+
+    </div>
+       
+    
+    `;
   },
 };

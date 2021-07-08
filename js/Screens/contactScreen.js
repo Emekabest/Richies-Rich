@@ -22,8 +22,6 @@ export const contactScreen = {
         <div class="content-container">
           <div class="content">
 
-
-        
             <header class="content-headerbox">
               <div class="content-headerbox-productName">
                 <div class="nav-open-btn">
@@ -46,9 +44,9 @@ export const contactScreen = {
                     <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
+                       <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
 
                   </ul>
                 </div>
@@ -60,7 +58,7 @@ export const contactScreen = {
                   <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                  <a href="login.html">
+                 <a href="/login" class="linK" id="/login"> 
                     <div
                       class="content-headerbox-right-register-login-user-fa"
                     >
@@ -80,7 +78,7 @@ export const contactScreen = {
                   <!---Sign up Zone -->
 
                   <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div
                       class="content-headerbox-right-register-signUp-user-fa"
                     >
@@ -99,16 +97,16 @@ export const contactScreen = {
               </div>
             </header>
 
-            <!-- Main content goes here  -->
+            <!---  content goes here -->
 
             <div class="menu-list">
           
-               <div class="content-headerbox-right2-register">
+              <div class="content-headerbox-right2-register">
 
                 <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                    <a href="login.html">
+                  <a href="/login" class="linK" id="/login"> 
                       <div class="content-headerbox-right-register-login-user-fa">                                                   
                         <i class="fas fa-user"></i>
                         <h6>Login</h6>
@@ -124,7 +122,7 @@ export const contactScreen = {
                 <!---Sign up Zone -->
 
                 <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
+                  <a href="/signup" class="linK" id="/signup"> 
                     <div class="content-headerbox-right-register-signUp-user-fa">
                       <i class="fas fa-user-plus"></i>
                       <h6>Register</h6>
@@ -135,9 +133,8 @@ export const contactScreen = {
                     </div>
                   </a>
                </div>
-              </div>
-            </div> 
-
+             </div>
+            </div>
 
             <div class="productMain-content">
             <div class="contact-container">

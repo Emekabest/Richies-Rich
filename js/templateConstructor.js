@@ -14,9 +14,9 @@ class ProductCards {
       products.forEach((product) => {
         cardsHTMLString += `
             <div class="container-sales">
-                <a href = "/products/${product.slug}"  id="/product/${
-          product.slug
-        }"  style="display:block" class = "linK">
+                <a id="/product/${
+                  product.slug
+                }"  style="display:block" class = "linK">
                     <div class="content-sales-img-wrapper">
                         <img
                             src="./image/${product.image}"
@@ -60,7 +60,7 @@ class ProductCards {
                       getCardsHTMLString().cardName
                     }</h5>
                     <p class="sales-category-view-more">
-                      <a href="/view-more-category">
+                      <a>
                         View more <i class="fa fa-angle-right" ></i
                       ></a>
                     </p>

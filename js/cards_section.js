@@ -4,9 +4,11 @@ import { ProductCards } from "./templateConstructor.js";
 
 const cards_section = {
   async cardPlacement() {
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const herokuServer =
+      "https://richies-rich1-commerce.herokuapp.com/api/products";
+    const localServer = "http://localhost:5000/api/products";
+
+    const allProducts = await get(herokuServer, localServer);
 
     // const allProduct = allProducts();
 

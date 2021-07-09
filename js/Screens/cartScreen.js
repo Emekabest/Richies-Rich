@@ -2,11 +2,11 @@ import { getCartItems, setCartItems } from "../localStorage.js";
 import { parseRequest_url } from "../utlis.js";
 import { get } from "../http.js";
 import { getDiscount } from "../app_functionalities.js";
+import { header } from "./header.js";
 
 const addToCart = (item, forceUpdate = false) => {
   let cartItems = getCartItems();
   console.log(item);
-  // item.getDiscount();
 
   const exitItem = cartItems.find((x) => x.slug === item.slug);
 
@@ -21,9 +21,9 @@ const addToCart = (item, forceUpdate = false) => {
 
 export const removeFromCart = async (slug) => {
   console.log(slug);
-  const filter = getCartItems().filter((x) => x.slug !== slug);
+  const filtered = getCartItems().filter((x) => x.slug !== slug);
 
-  setCartItems(filter);
+  setCartItems(filtered);
 
   console.log(getCartItems());
 
@@ -40,9 +40,11 @@ export const cartScreen = {
   csAfter_render() {},
 
   async render() {
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const herokuServer =
+      "https://richies-rich1-commerce.herokuapp.com/api/products";
+    const localServer = "http://localhost:5000/api/products";
+
+    const allProducts = await get("http://localhost:5000/api/products");
 
     const request = parseRequest_url();
 
@@ -125,147 +127,19 @@ export const cartScreen = {
 
       return mainCartItemsString;
     };
-    console.log("cartScreen");
+    console.log("kidding me?");
 
     return `
     <div class="container">
-      <nav class="nav">
-        <div class="nav-close-btn">
-          <i class="far fa-times-circle"></i>
-        </div>
 
-     <ul class="navul-content">
-          <li class="navli-content"><a class="linK" id="/">PRODUCTS</a></li>
-          <li class="navli-content"><a >BOULDERS & SHRUGS</a></li>
-          <li class="navli-content"><a >SHIRTS</a></li>
-          <li class="navli-content"><a >KIDS</a></li>
-          <li class="navli-content"><a >MATCHY-MATCHY</a></li>
-          <li><a class="linK" id="/carts"> CARTS</a></li>
-          <li class="navli-content"><a >EXCLUSIVE OFFER</a></li>
-          <li><a class="linK" id="/contact">CONTACT</a></li>
-        </ul>
-      </nav>
+          ${header.renderSmallView()}
 
       <div class="right-Container">
         <div class="content-container">
           <div class="content">
 
+          ${header.renderLargeView()}
 
-           
-            <header class="content-headerbox">
-              <div class="content-headerbox-productName">
-                <div class="nav-open-btn">
-                
-                  <i class="fas fa-bars"></i>
-                </div>
-
-                <div class="content-headerbox-productName_name">
-                  <span>
-                    <h1 class=""><a id="/" href = "/#/" class="linK">RICHY'SRICH</a></h1>
-                  </span>
-                </div>
-              </div>
-
-              <div class="content-headerbox-right">
-                <div class="content-headerbox-right_menu-list">
-                 <ul>
-                    <li><a id="/" href = "javascript:void(0)" class="linK">PRODUCTS</a></li>
-                    <li><a id="" href = "javascript:void(0)"   class="linK" >BOULDERS & SHURGS</a></li>
-                    <li><a id=""  href = "javascript:void(0)"  class="linK">SHIRTS</a></li>
-                    <li><a id=""  href = "javascript:void(0)"  class="linK">KIDS</a></li>
-                    <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
-                    <li><a id="/carts"  href = "/carts"  class="linK">CARTS</a></li>
-                    <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/contact"  href = "/contact"  class="linK">CONTACT</a></li>
-
-                  </ul>
-                </div>
-              
-                <div class="menu-bar"> <i class="fas fa-ellipsis-v"></i> </div>
-
-                <div class="content-headerbox-right-register">
-
-                  <!---Login Zone -->
-
-                  <div class="content-headerbox-right-register-login">
-                  <a href="login.html">
-                    <div
-                      class="content-headerbox-right-register-login-user-fa"
-                    >
-                      <i class="fas fa-user"></i>
-                      <h6>Login</h6>
-                    </div>
-
-                    <div
-                      class="content-headerbox-right-register-login-user-txt"
-                    >
-                      <i class="fas fa-sign-in-alt"></i>
-                      <p class="register-p">Login</p>
-                    </div>
-                  </a>
-                  </div>
-
-                  <!---Sign up Zone -->
-
-                  <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
-                    <div
-                      class="content-headerbox-right-register-signUp-user-fa"
-                    >
-                      <i class="fas fa-user-plus"></i>
-                      <h6>Register</h6>
-                    </div>
-                    <div
-                      class="content-headerbox-right-register-signUp-user-txt"
-                    >
-                      <i class="fas fa-user-plus"></i>
-                      <p class="register-p">Register</p>
-                    </div>
-                  </a>
-                </div>
-                </div>
-              </div>
-            </header>
-
-            <!-- Main content goes here  -->
-
-            <div class="menu-list">
-          
-               <div class="content-headerbox-right2-register">
-
-                <!---Login Zone -->
-
-                  <div class="content-headerbox-right-register-login">
-                    <a href="login.html">
-                      <div class="content-headerbox-right-register-login-user-fa">                                                   
-                        <i class="fas fa-user"></i>
-                        <h6>Login</h6>
-                      </div>
-
-                      <div class="content-headerbox-right-register-login-user-txt">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <p class="register-p">Login</p>
-                      </div>
-                    </a>
-                  </div>
-
-                <!---Sign up Zone -->
-
-                <div class="content-headerbox-right-register-signUp">
-                  <a href="signup.html">
-                    <div class="content-headerbox-right-register-signUp-user-fa">
-                      <i class="fas fa-user-plus"></i>
-                      <h6>Register</h6>
-                    </div>
-                    <div class="content-headerbox-right-register-signUp-user-txt">
-                      <i class="fas fa-user-plus"></i>
-                      <p class="register-p">Register</p>
-                    </div>
-                  </a>
-               </div>
-              </div>
-            </div> 
-            
             <div class="productMain-content">
 
 ${
@@ -286,7 +160,7 @@ ${
  
             <h3>Subtotal (${cartItemsArry.reduce((a, c) => a + c.qty, 0)} ${
         cartItemsArry.length <= 1 ? `item` : `items`
-      }):&#8358 ${cartItemsArry.reduce((a, c) => a + c.main_price, 0)}</h3>
+      }):&#8358 ${cartItemsArry.reduce((a, c) => a + c.main_price, 0)}.00</h3>
 
           </section>
           <section class="checkout-box_btn">
@@ -297,8 +171,8 @@ ${
     : `<div class = "productMain-content-empty"> 
     
       <div class = "productMain-content-emptyInner">
-     <i class="fab fa-wpexplorer"></i>
-       <h1>Cart is empty</h1>
+<i class="fas fa-shopping-basket"></i>
+ <h1>Cart is empty</h1>
        <a class="linK" id="/">go shopping </a>
       </div>
       </div>`

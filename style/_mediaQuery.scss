@@ -35,3 +35,45 @@
     @content;
   }
 }
+
+@mixin tabSize600 {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tabSize1130 {
+  @media screen and(max-width:1130px) {
+    @content;
+  }
+}
+
+@mixin tabSize565 {
+  @media screen and(max-width:565px) {
+    @content;
+  }
+}
+
+@mixin tabSize750 {
+  @media screen and(max-width:750px) {
+    @content;
+  }
+}
+
+@mixin phone_defaultSize {
+  @media screen and (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin phoneSize430 {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
+
+@mixin phoneSize330 {
+  @media screen and (max-width: 330px) {
+    @content;
+  }
+}

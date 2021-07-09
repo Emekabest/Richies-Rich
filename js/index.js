@@ -7,9 +7,10 @@ import { awaitTimeout } from "./app_functionalities.js";
 
 console.log(checkAwaitTimeout);
 
-const Interval = (boolen, FuncTion) => {
+const Interval = (boolean, FuncTion) => {
   const TimeOut = setInterval(() => {
-    if (boolen) {
+    console.log("boolean");
+    if (boolean) {
       FuncTion();
       clearInterval(TimeOut);
     }

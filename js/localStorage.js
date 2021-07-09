@@ -11,7 +11,7 @@ export const setCartItems = (cartItems) => {
 };
 
 export const setUserInfo = (
-  name,
+  name = "name",
   email = "",
   password = "",
   isAdmin = false,

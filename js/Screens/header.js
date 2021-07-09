@@ -13,7 +13,7 @@ export const header = {
                 <li class="navli-content"><a >SHIRTS</a></li>
                 <li class="navli-content"><a >KIDS</a></li>
                 <li class="navli-content"><a >MATCHY-MATCHY</a></li>
-                <li><a class="linK" id="/carts"> CARTS</a></li>
+                <li><a class="linK" id="/carts">CART</a></li>
                 <li class="navli-content"><a href="#">EXCLUSIVE OFFER</a></li>
                 <li><a class = "linK" id="/contact">CONTACT</a></li>
             </ul>

@@ -9,3 +9,23 @@ export const getCartItems = () => {
 export const setCartItems = (cartItems) => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
+
+export const setUserInfo = (
+  name,
+  email = "",
+  password = "",
+  isAdmin = false,
+  _id = "",
+  token = ""
+) => {
+  localStorage.setItem(
+    "userInfo",
+    JSON.stringify({ _id, name, email, password, token, isAdmin })
+  );
+};
+
+export const getUserInfo = () => {
+  return localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : { name: "", email: "", password: "" };
+};

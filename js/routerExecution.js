@@ -9,6 +9,7 @@ import { ranScreen } from "./Screens/ranscreen.js";
 import { allProduct_category } from "./Screens/AP_categoryScreen.js";
 import { Login } from "./Screens/login.js";
 import { SignUp } from "./Screens/signup.js";
+import { Faq } from "./Screens/faq.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -28,6 +29,7 @@ const routerExecution = {
       "/APcategory": allProduct_category,
       "/login": Login,
       "/signup": SignUp,
+      "/faq": Faq,
     };
 
     const router = async () => {

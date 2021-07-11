@@ -10,14 +10,14 @@ export const setCartItems = (cartItems) => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 
-export const setUserInfo = (
-  name = "name",
+export const setUserInfo = ({
+  _id = "",
+  name = "",
+  isAdmin = false,
   email = "",
   password = "",
-  isAdmin = false,
-  _id = "",
-  token = ""
-) => {
+  token = "",
+}) => {
   localStorage.setItem(
     "userInfo",
     JSON.stringify({ _id, name, email, password, token, isAdmin })

@@ -5,7 +5,7 @@ class ProductCards {
     this.categoryName = "";
   }
 
-  static getHTMLString(products) {
+  static getHTMLString(products, relatedCard) {
     const getCardsHTMLString = () => {
       let cardsHTMLString = "";
 
@@ -57,12 +57,19 @@ class ProductCards {
                 <div class="things">
                   <div class="sales-category">
                     <h5 class="sales-category-heading">${
-                      getCardsHTMLString().cardName
+                      !relatedCard
+                        ? getCardsHTMLString().cardName
+                        : "related product"
                     }</h5>
                     <p class="sales-category-view-more">
-                      <a>
+                    ${
+                      !relatedCard
+                        ? ` <a>
                         View more <i class="fa fa-angle-right" ></i
-                      ></a>
+                      ></a>`
+                        : ""
+                    }
+                     
                     </p>
                   </div>
                   <div class="container-sales-boxes">${

@@ -22,7 +22,7 @@ export const header = {
   },
 
   renderLargeView() {
-    localStorage.setItem("OK", getUserInfo().name);
+    // localStorage.setItem("OK", getUserInfo().name);
 
     return `
          <header class="content-headerbox">
@@ -49,22 +49,24 @@ export const header = {
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
                         <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CARTS</a></li>
-
+                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CART</a></li>
                   </ul>
                 </div>
               
                 ${
                   getUserInfo().name
-                    ? console.log("getUserInfo().name")
-                    : `${""}                <div class="menu-bar"> <i class="fas fa-ellipsis-v"></i> </div>
+                    ? `<p class="user-name" > 
+                    <a class="linK" id="/profile">${getUserInfo().name}
+                      </a> 
+                      </p>`
+                    : `<div class="menu-bar"> <i class="fas fa-ellipsis-v"></i> </div>
 
                 <div class="content-headerbox-right-register">
 
                   <!---Login Zone -->
 
                   <div class="content-headerbox-right-register-login">
-                  <a href="/login" class="linK" id="/login">
+                  <a class="linK" id="/login">
                   
                    <!--- <div class="content-headerbox-right-register-login-user-fa"> 
                       <i class="fas fa-user"></i>
@@ -75,14 +77,13 @@ export const header = {
                       <i class="fas fa-sign-in-alt"></i>
                       <p class="register-p">Login</p>
                     </div>
-
                   </a>
                   </div>
 
                   <!---Sign up Zone -->
 
                     <div class="content-headerbox-right-register-signUp">
-                        <a href="/signup" class="linK" id="/signup"> 
+                        <a class="linK" id="/signup"> 
                                 <div
                                 class="content-headerbox-right-register-signUp-user-fa"
                                 >

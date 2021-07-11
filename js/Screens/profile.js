@@ -1,18 +1,20 @@
-import { login } from "../api.js";
+import { login, update } from "../api.js";
 import { awaitTimeout } from "../app_functionalities.js";
-import { setUserInfo } from "../localStorage.js";
+import { getUserInfo, setUserInfo } from "../localStorage.js";
 import { header } from "./header.js";
 
-export const Login = {
+export const Profile = {
   async after_render() {
     const btn = document
-      .querySelector(".Form")
+      .querySelector(".profile-Form")
       .addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const data = await login({
+        const data = await update({
+          name: document.querySelector("#name").value,
           email: document.querySelector("#email").value,
           password: document.querySelector("#password").value,
+          re_password: document.querySelector("#re-password").value,
         });
 
         if (data.error) {
@@ -26,6 +28,7 @@ export const Login = {
 
   render() {
     awaitTimeout(this.after_render);
+    const { name, email } = getUserInfo();
 
     return `
     <div class = "container">
@@ -42,12 +45,19 @@ export const Login = {
 
 <div class="Main-container">
       <div class="Main-container-login-container">
-        <center><h2>Login</h2></center>
+        <center><h2>User Profile</h2></center>
 
         <div class="Main-container-login-containerInner">
-          <form class = "Form">
+          <form class = "profile-Form">
+
             <div class="main-input mian-container-login-containerInner-email">
-              <input type="email" placeholder="Email" name="email"
+              <input type="text" placeholder="Name" name="name" value = "${name}"
+                id="name"
+              />
+            </div>
+        
+            <div class="main-input mian-container-login-containerInner-email">
+              <input type="email" placeholder="Email" name="email" value = "${email}"
                 id="email"
               />
             </div>
@@ -61,23 +71,31 @@ export const Login = {
                 class="password"
                 placeholder="Password"
                 name="password"
+                
               />
             </div>
 
-    
+            <div
+              class="main-input mian-container-login-containerInner-password"
+            >
+              <input
+                id="re-password"
+                type="password"
+                class="re-password"
+                placeholder="Re-password"
+                name="password"
+              />
+            </div>
+
             <div class="form-btn">
               <button class="Btn">Submit</button>
             </div>
-            </form>
-               <div style = "margin:15px 0px;display:flex">
-          <h5>New user?</h5>
-          <a class="linK" id="/signup" style="color:#000; text-decoration:underline; font-weight:bold;font-size:14px; margin-left:10px;"> create an account <a>
-          </div>
+          </form>
+        
         </div>
       </div>
     </div>
     </div>
-
     </div>
        
     

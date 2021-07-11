@@ -1,5 +1,6 @@
 import { currency_sign, getDiscount } from "../app_functionalities.js";
 import { get } from "../http.js";
+import { ProductCards } from "../templateConstructor.js";
 import { parseRequest_url } from "../utlis.js";
 import { header } from "./header.js";
 // import { mainArea_main, mainAreaRelatedcontent_div } from "./mainIndex.js";
@@ -222,7 +223,18 @@ class ProductScreen {
 
               </main>
 
-              <div class="main-area_related-content"> </div>
+              <div class="main-area_related-content">
+              
+              ${
+                // console.log(this.product.related_items.products)
+                this.product.related_items
+                  ? ProductCards.getHTMLString(
+                      this.product.related_items.products,
+                      true
+                    )
+                  : ""
+              }
+              </div>
 
             </div>
           </div>

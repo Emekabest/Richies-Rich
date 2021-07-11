@@ -426,6 +426,12 @@ body {
         }
       }
     }
+    .user-name {
+      margin-left: 20px;
+      font-weight: bold;
+      display: grid;
+      align-items: center;
+    }
   }
 
   @include phone {
@@ -540,6 +546,7 @@ body {
   text-align: center;
 
   &-view-more a {
+    cursor: pointer;
     width: 120px;
     background: #fafafa;
     // height: 60px;

@@ -74,20 +74,22 @@ function homeScreenusabilities() {
     navBar_el.classList.remove("open");
   });
 
-  menu_bar_li.addEventListener("click", () => {
-    menuList_div.classList.add("menu-list_show");
-    overlay_div.classList.add("overlay_show");
+  if (!localStorage.getItem("userInfo")) {
+    menu_bar_li.addEventListener("click", () => {
+      menuList_div.classList.add("menu-list_show");
+      overlay_div.classList.add("overlay_show");
 
-    overlay_div.addEventListener("click", () => {
-      menuList_div.classList.remove("menu-list_show");
-      overlay_div.classList.remove("overlay_show");
-    });
+      overlay_div.addEventListener("click", () => {
+        menuList_div.classList.remove("menu-list_show");
+        overlay_div.classList.remove("overlay_show");
+      });
 
-    addEventListener("scroll", () => {
-      menuList_div.classList.remove("menu-list_show");
-      overlay_div.classList.remove("overlay_show");
+      addEventListener("scroll", () => {
+        menuList_div.classList.remove("menu-list_show");
+        overlay_div.classList.remove("overlay_show");
+      });
     });
-  });
+  }
 
   let header_height = contentHeaderBox_div.clientHeight;
 

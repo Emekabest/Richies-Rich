@@ -8,8 +8,9 @@ import { contactScreen } from "./Screens/contactScreen.js";
 import { ranScreen } from "./Screens/ranscreen.js";
 import { allProduct_category } from "./Screens/AP_categoryScreen.js";
 import { Login } from "./Screens/login.js";
-import { SignUp } from "./Screens/signup.js";
+import { Register } from "./Screens/register.js";
 import { Faq } from "./Screens/faq.js";
+import { Profile } from "./Screens/profile.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -28,8 +29,9 @@ const routerExecution = {
       "/contact": contactScreen,
       "/APcategory": allProduct_category,
       "/login": Login,
-      "/signup": SignUp,
+      "/signup": Register,
       "/faq": Faq,
+      "/profile": Profile,
     };
 
     const router = async () => {

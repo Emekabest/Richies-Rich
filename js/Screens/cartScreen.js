@@ -7,7 +7,7 @@ import { header } from "./header.js";
 const addToCart = (item) => {
   let cartItems = getCartItems();
 
-  console.log(item);
+  console.log(Item);
 
   const exitItem = cartItems.find((x) => x.slug === item.slug);
 

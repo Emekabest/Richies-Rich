@@ -11,40 +11,49 @@ class ProductCards {
 
       // Build cards into string => cardsHTMLString
 
-      products.forEach((product) => {
-        cardsHTMLString += `
+      // products.forEach((p) => {
+      //   console.log(p);
+      // });
+
+      for (let p = 0; p < 3; p++) {
+        if (products[p]) {
+          cardsHTMLString += ` 
+          
             <div class="container-sales">
                 <a id="/product/${
-                  product.slug
+                  products[p].slug
                 }"  style="display:block" class = "linK">
                     <div class="content-sales-img-wrapper">
                         <img
-                            src="./image/${product.image}"
-                            class="content-sales-img" 
-                            alt="${product.name}"
+                            src="./image/${products[p].image}"
+                            class="content-sales-img"
+                            alt="${products[p].name}"
                         />
                     </div>
- 
                     <div class="content-salesOption">
                         <div class="content-name">
-                            <p>${product.name}</p>
+                            <p>${products[p].name}</p>
                         </div>
                         <div class="content-price">
                            <span class = "content-price-discount"> ${currency_sign(
                              "naira"
-                           )}  ${product.recent_price}</p></span> 
+                           )}  ${products[p].recent_price}</p></span>
                            <span class = "content-price-mainPrice">  ${currency_sign(
                              "naira"
                            )} ${getDiscount(
-          product.recent_price,
-          product.discount_price
-        )}</span>
+            products[p].recent_price,
+            products[p].discount_price
+          )}</span>
                         </div>
                     </div>
                 </a>
             </div>
-        `;
+       
+          `;
+        }
+      }
 
+      products.forEach((product) => {
         this.categoryName = product.category;
       });
 
@@ -69,7 +78,7 @@ class ProductCards {
                       ></a>`
                         : ""
                     }
-                     
+              
                     </p>
                   </div>
                   <div class="container-sales-boxes">${

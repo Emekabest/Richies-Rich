@@ -3,7 +3,7 @@ import { awaitTimeout } from "../app_functionalities.js";
 import { setUserInfo } from "../localStorage.js";
 import { header } from "./header.js";
 
-export const Login = {
+export const LoginScreen = {
   async after_render() {
     const btn = document
       .querySelector(".Form")

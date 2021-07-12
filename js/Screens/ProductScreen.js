@@ -226,7 +226,6 @@ class ProductScreen {
               <div class="main-area_related-content">
               
               ${
-                // console.log(this.product.related_items.products)
                 this.product.related_items
                   ? ProductCards.getHTMLString(
                       this.product.related_items.products,

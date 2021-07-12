@@ -14,7 +14,7 @@ const get = async (herokuURL, localURL) => {
 
   try {
     console.log((await response).status);
-  } catch {
+  } catch (err) {
     check = false;
   }
 

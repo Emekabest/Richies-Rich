@@ -3,7 +3,7 @@ import { awaitTimeout } from "../app_functionalities.js";
 import { getUserInfo, setUserInfo } from "../localStorage.js";
 import { header } from "./header.js";
 
-export const Profile = {
+export const ProfileScreen = {
   async after_render() {
     const btn = document
       .querySelector(".profile-Form")

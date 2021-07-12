@@ -6,11 +6,11 @@ import { parseRequest_url } from "./utlis.js";
 import { cartScreen, removeFromCart } from "./Screens/cartScreen.js";
 import { contactScreen } from "./Screens/contactScreen.js";
 import { ranScreen } from "./Screens/ranscreen.js";
-import { allProduct_category } from "./Screens/AP_categoryScreen.js";
-import { Login } from "./Screens/login.js";
-import { Register } from "./Screens/register.js";
-import { Faq } from "./Screens/faq.js";
-import { Profile } from "./Screens/profile.js";
+import { allProduct_categoryScreen } from "./Screens/AP_categoryScreen.js";
+import { LoginScreen } from "./Screens/login.js";
+import { RegisterScreen } from "./Screens/register.js";
+import { FaqScreen } from "./Screens/faq.js";
+import { ProfileScreen } from "./Screens/profile.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -27,11 +27,11 @@ const routerExecution = {
       "/carts/:slug": cartScreen,
       "/carts": cartScreen,
       "/contact": contactScreen,
-      "/APcategory": allProduct_category,
-      "/login": Login,
-      "/signup": Register,
-      "/faq": Faq,
-      "/profile": Profile,
+      "/APcategory": allProduct_categoryScreen,
+      "/login": LoginScreen,
+      "/signup": RegisterScreen,
+      "/faq": FaqScreen,
+      "/profile": ProfileScreen,
     };
 
     const router = async () => {

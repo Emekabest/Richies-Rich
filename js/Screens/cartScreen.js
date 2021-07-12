@@ -46,7 +46,9 @@ export const cartScreen = {
       "https://richies-rich1-commerce.herokuapp.com/api/products";
     const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get("http://localhost:5000/api/products");
+    const allProducts = await get(
+      "https://richies-rich1-commerce.herokuapp.com/api/products"
+    );
 
     const request = parseRequest_url();
 

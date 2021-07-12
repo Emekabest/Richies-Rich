@@ -2,7 +2,7 @@ import { get } from "../http.js";
 import { BO_categoryProduct } from "../templateConstructor.js";
 import { header } from "./header.js";
 
-export const allProduct_category = {
+export const allProduct_categoryScreen = {
   async render() {
     const categoryName = localStorage.getItem("category-name");
 

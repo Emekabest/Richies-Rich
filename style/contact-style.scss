@@ -384,61 +384,61 @@ body {
   }
 }
 
-.sales-category {
-  padding: 10px;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  text-align: center;
+// .sales-category {
+//   padding: 10px;
+//   display: flex;
+//   -webkit-box-align: center;
+//   -ms-flex-align: center;
+//   align-items: center;
+//   -webkit-box-pack: center;
+//   -ms-flex-pack: center;
+//   justify-content: center;
+//   -webkit-box-pack: justify;
+//   -ms-flex-pack: justify;
+//   justify-content: space-between;
+//   text-align: center;
 
-  &-view-more a {
-    width: 120px;
-    background: #fafafa;
-    // height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 10px;
-    // border: 1px solid lightgrey;
-    border-radius: 2px;
-    color: #333;
+//   &-view-more a {
+//     width: 120px;
+//     background: #fafafa;
+//     // height: 60px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 20px 10px;
+//     // border: 1px solid lightgrey;
+//     border-radius: 2px;
+//     color: #333;
 
-    &:hover {
-      background: #f5f5f5;
-    }
-    & i {
-      margin-left: 10px;
+//     &:hover {
+//       background: #f5f5f5;
+//     }
+//     & i {
+//       margin-left: 10px;
 
-      @include phone {
-        margin-left: 4px;
-      }
-    }
+//       @include phone {
+//         margin-left: 4px;
+//       }
+//     }
 
-    @include phone {
-      width: 100px;
-      padding: 13px 6px;
-      font-size: 14.54px;
-    }
-  }
+//     @include phone {
+//       width: 100px;
+//       padding: 13px 6px;
+//       font-size: 14.54px;
+//     }
+//   }
 
-  &-heading {
-    font-size: 120%;
-    &::first-letter {
-      text-transform: uppercase;
-    }
+//   &-heading {
+//     font-size: 120%;
+//     &::first-letter {
+//       text-transform: uppercase;
+//     }
 
-    @include phone {
-      font-size: 97%;
-    }
-  }
-}
+//     @include phone {
+//       font-size: 97%;
+//     }
+//   }
+// }
 
 .things {
   width: 100%;

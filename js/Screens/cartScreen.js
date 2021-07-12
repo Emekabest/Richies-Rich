@@ -4,8 +4,9 @@ import { get } from "../http.js";
 import { getDiscount } from "../app_functionalities.js";
 import { header } from "./header.js";
 
-const addToCart = (item, forceUpdate = false) => {
+const addToCart = (item) => {
   let cartItems = getCartItems();
+
   console.log(item);
 
   const exitItem = cartItems.find((x) => x.slug === item.slug);
@@ -20,7 +21,6 @@ const addToCart = (item, forceUpdate = false) => {
 };
 
 export const removeFromCart = async (slug) => {
-  console.log(slug);
   const filtered = getCartItems().filter((x) => x.slug !== slug);
 
   setCartItems(filtered);
@@ -31,7 +31,9 @@ export const removeFromCart = async (slug) => {
     document.location.hash = "/carts/";
     console.log("true");
   } else {
-    document.location.hash = `/carts/${parseRequest_url().slug}`;
+    document.location.hash = `/carts/${
+      parseRequest_url().slug ? parseRequest_url().slug : ""
+    }`;
     location.reload();
   }
 };
@@ -44,9 +46,7 @@ export const cartScreen = {
       "https://richies-rich1-commerce.herokuapp.com/api/products";
     const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const allProducts = await get("http://localhost:5000/api/products");
 
     const request = parseRequest_url();
 
@@ -117,7 +117,7 @@ export const cartScreen = {
                   <h3>&#8358 ${cartItem.main_price}</h3>
                 </span>
                 
-                <div class="cart-boxInner_Productcard_right_delete" id = "${
+                <div class="cart-boxInner_Productcard_right_delete" id="${
                   cartItem.slug
                 }">
                     <i class="fas fa-trash-alt"></i>

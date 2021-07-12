@@ -16,11 +16,11 @@ const get = async (herokuURL, localURL) => {
     console.log((await response).status);
   } catch (err) {
     check = false;
+    console.log(check);
   }
 
   if (!check) {
     response = fetch(localURL);
-    console.log("Ok");
   }
 
   const data = await (await response).json();

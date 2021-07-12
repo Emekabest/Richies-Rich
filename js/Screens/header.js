@@ -49,7 +49,7 @@ export const header = {
                     <li><a id="" href = "javascript:void(0)"   class="linK">MATCHY-MATCHY</a></li>
                         <li><a id="/contact"  href = "javascript:void(0)"  class="linK">CONTACT</a></li>
                     <li><a id=""  href = "javascript:void(0)"  class="linK">EXCLUSIVE OFFER</a></li>
-                    <li><a id="/carts"  href = "javascript:void(0)"  class="linK">CART</a></li>
+                    <li><a id="/carts" href="javascript:void(0)"  class="linK">CART</a></li>
                   </ul>
                 </div>
               

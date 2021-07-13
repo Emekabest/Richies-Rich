@@ -22,6 +22,8 @@ const cardHtml = await cards_section.render();
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
 
+console.log(document.querySelector(".checkout-btn"));
+
 // setTimeout(() => {x
 
 // }, 1000);

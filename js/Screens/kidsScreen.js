@@ -1,26 +1,27 @@
 import { get } from "../http.js";
-import { BO_categoryProduct } from "../templateConstructor.js";
 import { header } from "./header.js";
+import { BO_categoryProduct } from "../templateConstructor.js";
 
-export const allProduct_categoryScreen = {
+export const KidsScreen = {
+  after_render() {},
   async render() {
-    const categoryName = localStorage.getItem("category-name");
-
     const herokuServer =
       "https://richies-rich1-commerce.herokuapp.com/api/products";
     const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get(herokuServer, localServer);
+    const allProducts = await get(localServer);
 
-    const categoryItem = [];
+    const kidsWears = [];
 
     allProducts.forEach((x) => {
-      if (x.category === categoryName) {
-        categoryItem.push(x);
+      if (x.category === "Kids") {
+        kidsWears.push(x);
       }
     });
 
-    console.log(categoryItem);
+    const y = kidsWears.sort((x, b) => {
+      return x;
+    });
 
     return `
     div class="container">
@@ -34,14 +35,10 @@ export const allProduct_categoryScreen = {
           ${header.renderLargeView()}
             
             <div class="productMain-content">
-            <center>  <h1 class = "Category-heading">  ${categoryName} Wears</h1></center>
       <div class = "main-Ccontainer">
            
 
-  ${BO_categoryProduct.getCardsHTMLString(categoryItem).replace(
-    "undefined",
-    ""
-  )}
+  ${BO_categoryProduct.getCardsHTMLString(kidsWears).replace("undefined", "")}
             </div>
             </div>
 
@@ -108,6 +105,7 @@ export const allProduct_categoryScreen = {
       </div>
     </div>
     
-        `;
+        
+      `;
   },
 };

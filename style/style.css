@@ -1424,4 +1424,51 @@ body {
     height: 30px;
   }
 }
+
+.progress-cont {
+  height: 5px;
+  border-radius: 100%;
+  width: 25em;
+  background-color: #e6e6e6;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  background-color: #03c003;
+  height: 100%;
+}
+
+.checkout-steps {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.checkout-steps ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.checkout-steps ul li {
+  padding: 0px 20px;
+}
+
+.checkout-steps ul li a {
+  font-weight: bold;
+}
+
+.checkout-steps ul li.coloured {
+  color: #03c003;
+  opacity: 1;
+}
+
+.checkout-steps ul li.not-coloured {
+  color: #333;
+  opacity: 0.5;
+}
 /*# sourceMappingURL=style.css.map */

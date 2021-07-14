@@ -12,6 +12,9 @@ import { RegisterScreen } from "./Screens/register.js";
 import { FaqScreen } from "./Screens/faq.js";
 import { ProfileScreen } from "./Screens/profile.js";
 import { KidsScreen } from "./Screens/kidsScreen.js";
+import { ShippingScreen } from "./Screens/shipping.js";
+import { PaymentScreen } from "./Screens/payment.js";
+import { PlaceOrderScreen } from "./Screens/placeOrderScreen.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -34,8 +37,10 @@ const routerExecution = {
       "/faq": FaqScreen,
       "/profile": ProfileScreen,
       "/kids": KidsScreen,
+      "/shipping": ShippingScreen,
+      "/payment": PaymentScreen,
+      "/place-order": PlaceOrderScreen,
     };
-
     const router = async () => {
       const request = parseRequest_url();
       const parseUrl =
@@ -47,14 +52,14 @@ const routerExecution = {
 
       const screen = route[parseUrl] ? route[parseUrl] : errorPageScreen;
       // const Page = await screen.render();
-      const c = async () => {
-        const RenderScreen = screen.render(cardHtml);
+      const getScreen = async () => {
         checkAwaitTimeout = true;
+        const RenderScreen = screen.render(cardHtml);
         return RenderScreen;
       };
       // console.log(await screen.render());
 
-      mainContainer_div.innerHTML = await c();
+      mainContainer_div.innerHTML = await getScreen();
 
       const cartCardDel_div = document.querySelectorAll(
         ".cart-boxInner_Productcard_right_delete"

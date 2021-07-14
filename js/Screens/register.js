@@ -1,6 +1,7 @@
 import { login, register } from "../api.js";
 import { awaitTimeout } from "../app_functionalities.js";
 import { setUserInfo } from "../localStorage.js";
+import { redirectUser } from "../utlis.js";
 import { header } from "./header.js";
 
 export const RegisterScreen = {
@@ -21,7 +22,7 @@ export const RegisterScreen = {
           alert(data.error);
         } else {
           setUserInfo(data);
-          document.location.hash = "/";
+          redirectUser();
         }
       });
   },

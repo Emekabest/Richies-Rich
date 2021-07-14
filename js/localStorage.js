@@ -33,3 +33,31 @@ export const getUserInfo = () => {
 export const clearUserInfo = () => {
   localStorage.removeItem("userInfo");
 };
+
+export const setShippingInfo = ({
+  address = "",
+  city = "",
+  postalcode = "",
+  country = "",
+}) => {
+  localStorage.setItem(
+    "shippingInfo",
+    JSON.stringify({ address, city, postalcode, country })
+  );
+};
+
+export const getShippingInfo = () => {
+  return localStorage.getItem("shippingInfo")
+    ? JSON.parse(localStorage.getItem("shippingInfo"))
+    : { address: "", city: "", postalcode: "", country: "" };
+};
+
+export const setPayment = ({ payment_method = "1" }) => {
+  localStorage.setItem("payment-method", JSON.stringify({ payment_method }));
+};
+
+export const getPayment = () => {
+  return localStorage.getItem("payment-method")
+    ? JSON.parse(localStorage.getItem("payment-method"))
+    : { payment_method: "" };
+};

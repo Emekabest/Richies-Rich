@@ -54,7 +54,9 @@ const routerExecution = {
       // const Page = await screen.render();
       const getScreen = async () => {
         const RenderScreen = screen.render(cardHtml);
-        checkAwaitTimeout = true;
+        setTimeout(() => {
+          checkAwaitTimeout = true;
+        }, 1000);
         return RenderScreen;
       };
       // console.log(await screen.render());

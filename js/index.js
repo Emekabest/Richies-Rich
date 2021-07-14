@@ -5,23 +5,23 @@ import { ProductCards } from "./templateConstructor.js";
 import { removeFromCart } from "./Screens/cartScreen.js";
 import { awaitTimeout } from "./app_functionalities.js";
 
-console.log(checkAwaitTimeout);
-
-const Interval = (boolean, FuncTion) => {
-  const TimeOut = setInterval(() => {
-    console.log("boolean");
-    if (boolean) {
-      FuncTion();
-      clearInterval(TimeOut);
-    }
-  }, 500);
-};
-
 const cardHtml = await cards_section.render();
 
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
 
+console.log(checkAwaitTimeout);
+
+const Interval = (boolean, FuncTion) => {
+  console.log(boolean);
+  const TimeOut = setInterval(() => {
+    if (boolean) {
+      console.log(boolean);
+      FuncTion();
+      clearInterval(TimeOut);
+    }
+  }, 500);
+};
 //RelatedItems usabilities
 //RelatedItems usabilities
 //RelatedItems usabilities

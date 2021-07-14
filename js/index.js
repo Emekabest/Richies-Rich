@@ -14,7 +14,7 @@ const Interval = (boolean, FuncTion) => {
       FuncTion();
       clearInterval(TimeOut);
     }
-  }, 100);
+  }, 500);
 };
 
 const cardHtml = await cards_section.render();

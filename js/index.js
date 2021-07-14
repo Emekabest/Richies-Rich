@@ -14,19 +14,13 @@ const Interval = (boolean, FuncTion) => {
       FuncTion();
       clearInterval(TimeOut);
     }
-  }, 1000);
+  }, 100);
 };
 
 const cardHtml = await cards_section.render();
 
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
-
-console.log(document.querySelector(".checkout-btn"));
-
-// setTimeout(() => {x
-
-// }, 1000);
 
 //RelatedItems usabilities
 //RelatedItems usabilities
@@ -114,7 +108,6 @@ Interval(checkAwaitTimeout, homeScreenusabilities);
 
 const psAfter_render = () => {
   const btns = document.querySelectorAll(".btn");
-  console.log(btns);
   btns.forEach((btn) => {
     console.log(btn);
     btn
@@ -130,21 +123,11 @@ const psAfter_render = () => {
 
 Interval(checkAwaitTimeout, psAfter_render);
 
-// const TimeOut = setInterval(() => {
-//   if (checkAwaitTimeout) {
-//     psAfter_render();
-
-//     clearInterval(TimeOut);
-//   }
-// }, 700);
-//productScreen usabilities
-//productScreen usabilities
-//productScreen usabilities
-
 //#################################################################################
 
-// export { mainArea_main };
-// export { mainContainer_div };
+//Checkout!!!!!!!!!!!!!!!!!!!!!!!!
+//Checkout!!!!!!!!!!!!!!!!!!!!!!!!
+//Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!

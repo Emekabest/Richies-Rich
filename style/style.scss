@@ -1293,3 +1293,43 @@ body {
     height: 30px;
   }
 }
+
+.progress-cont {
+  height: 5px;
+  border-radius: 100%;
+  width: 25em;
+  background-color: rgb(230, 230, 230);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  background-color: rgb(3, 192, 3);
+  height: 100%;
+}
+
+//Checkout_Steps
+
+.checkout-steps {
+  display: grid;
+  place-items: center;
+  // padding: 20px;
+  & ul {
+    display: flex;
+    justify-content: center;
+    & li {
+      padding: 0px 20px;
+      & a {
+        font-weight: bold;
+      }
+      &.coloured {
+        color: rgb(3, 192, 3);
+        opacity: 1;
+      }
+      &.not-coloured {
+        color: #333;
+        opacity: 0.5;
+      }
+    }
+  }
+}

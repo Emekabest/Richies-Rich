@@ -1,6 +1,7 @@
 import { login } from "../api.js";
 import { awaitTimeout } from "../app_functionalities.js";
 import { setUserInfo } from "../localStorage.js";
+import { CheckoutSteps, redirectUser } from "../utlis.js";
 import { header } from "./header.js";
 
 export const LoginScreen = {
@@ -19,7 +20,9 @@ export const LoginScreen = {
           alert(data.error);
         } else {
           setUserInfo(data);
-          document.location.hash = "/";
+
+          redirectUser();
+          // document.location.hash = "/";
         }
       });
   },
@@ -40,6 +43,7 @@ export const LoginScreen = {
             
             <div class="productMain-content">
 
+            ${CheckoutSteps.render({ step1: true })}
 <div class="Main-container">
       <div class="Main-container-login-container">
         <center><h2>Login</h2></center>

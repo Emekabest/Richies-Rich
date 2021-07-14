@@ -1,8 +1,9 @@
-import { getCartItems, setCartItems } from "../localStorage.js";
-import { parseRequest_url } from "../utlis.js";
+import { getCartItems, getUserInfo, setCartItems } from "../localStorage.js";
+import { parseRequest_url, redirectUser } from "../utlis.js";
 import { get } from "../http.js";
 import { getDiscount } from "../app_functionalities.js";
 import { header } from "./header.js";
+import { checkAwaitTimeout } from "../routerExecution.js";
 
 const addToCart = (item) => {
   let cartItems = getCartItems();
@@ -37,9 +38,24 @@ export const removeFromCart = async (slug) => {
 
 export const cartScreen = {
   after_render() {
-    // document.querySelector(".checkout-btn").addEventListener("click", () => {
-    //   console.log("ok");
-    // });
+    const interval = setInterval(() => {
+      if (checkAwaitTimeout) {
+        const checkoutBtn_btn = document.querySelector(".checkout-btn");
+        if (checkoutBtn_btn) {
+          // return;
+          checkoutBtn_btn.addEventListener("click", () => {
+            const userInfo = getUserInfo();
+            if (!userInfo.name) {
+              document.location.hash = "/login";
+            } else {
+              redirectUser();
+            }
+          });
+        }
+
+        clearInterval(interval);
+      }
+    }, 800);
   },
 
   async render() {

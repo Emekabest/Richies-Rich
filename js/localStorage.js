@@ -29,3 +29,7 @@ export const getUserInfo = () => {
     ? JSON.parse(localStorage.getItem("userInfo"))
     : { name: "", email: "", password: "" };
 };
+
+export const clearUserInfo = () => {
+  localStorage.removeItem("userInfo");
+};

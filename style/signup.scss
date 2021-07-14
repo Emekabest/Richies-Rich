@@ -48,6 +48,7 @@ body {
 
     .form-btn {
       button {
+        margin: 10px 0;
         cursor: pointer;
         font-size: 15px;
         height: 32px;
@@ -60,4 +61,16 @@ body {
       }
     }
   }
+}
+
+.signout-btn {
+  cursor: pointer;
+  font-size: 15px;
+  height: 32px;
+  width: 100%;
+  background-color: #6ca6dd;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: 0px 0px 3px rgb(0, 0, 0);
 }

@@ -287,6 +287,10 @@ body {
   }
 }
 
+.content-headerbox-right .signout_form-btn {
+  margin-top: 20px;
+}
+
 .content-headerbox-right .menu-bar {
   display: none;
 }

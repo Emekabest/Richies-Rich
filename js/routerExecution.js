@@ -11,6 +11,7 @@ import { LoginScreen } from "./Screens/login.js";
 import { RegisterScreen } from "./Screens/register.js";
 import { FaqScreen } from "./Screens/faq.js";
 import { ProfileScreen } from "./Screens/profile.js";
+import { KidsScreen } from "./Screens/kidsScreen.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -32,6 +33,7 @@ const routerExecution = {
       "/signup": RegisterScreen,
       "/faq": FaqScreen,
       "/profile": ProfileScreen,
+      "/kids": KidsScreen,
     };
 
     const router = async () => {
@@ -68,7 +70,6 @@ const routerExecution = {
       const link = document.querySelectorAll(".linK");
       Array.from(link).forEach((element) => {
         element.addEventListener("click", (e) => {
-          // element.href = "";
           console.log(element.href);
           getLinkToHash(element.id);
         });

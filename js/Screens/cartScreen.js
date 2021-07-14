@@ -7,8 +7,6 @@ import { header } from "./header.js";
 const addToCart = (item) => {
   let cartItems = getCartItems();
 
-  console.log(Item);
-
   const exitItem = cartItems.find((x) => x.slug === item.slug);
 
   if (exitItem) {
@@ -29,7 +27,6 @@ export const removeFromCart = async (slug) => {
 
   if (slug === parseRequest_url().slug) {
     document.location.hash = "/carts/";
-    console.log("true");
   } else {
     document.location.hash = `/carts/${
       parseRequest_url().slug ? parseRequest_url().slug : ""
@@ -39,16 +36,19 @@ export const removeFromCart = async (slug) => {
 };
 
 export const cartScreen = {
-  csAfter_render() {},
+  after_render() {
+    // document.querySelector(".checkout-btn").addEventListener("click", () => {
+    //   console.log("ok");
+    // });
+  },
 
   async render() {
+    this.after_render();
     const herokuServer =
       "https://richies-rich1-commerce.herokuapp.com/api/products";
     const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get(
-      "https://richies-rich1-commerce.herokuapp.com/api/products"
-    );
+    const allProducts = await get(herokuServer, localServer);
 
     const request = parseRequest_url();
 
@@ -69,7 +69,7 @@ export const cartScreen = {
       });
     }
 
-    const getCartHtmlStrings = () => {
+    const getCartHtmlStrings = async () => {
       let mainCartItemsString = "";
       cartItemsArry.map((cartItem) => {
         mainCartItemsString += `
@@ -131,7 +131,6 @@ export const cartScreen = {
 
       return mainCartItemsString;
     };
-    console.log("kidding me?");
 
     return `
     <div class="container">
@@ -155,7 +154,7 @@ ${
             <div><h4>Price</h4></div>
           </div>
           <div class="cart-boxInner">
-    ${getCartHtmlStrings()}
+    ${await getCartHtmlStrings()}
           </div>
         </div>
         <div class = "checkout-main">
@@ -168,7 +167,7 @@ ${
 
           </section>
           <section class="checkout-box_btn">
-            <a href="#"><button>Checkout</button> </a>
+            <a><button class="checkout-btn">Checkout</button> </a>
           </section>
         </div>
       </div> `

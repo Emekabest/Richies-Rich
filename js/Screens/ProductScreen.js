@@ -144,7 +144,7 @@ class ProductScreen {
                           <div class="right-barContent_image">
                        <img src="../image/${this.product.image}" alt="${
       this.product.name
-    }" />
+    }" /> 
 
                           </div>
                         </div>

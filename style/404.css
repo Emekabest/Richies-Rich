@@ -19,8 +19,6 @@
           align-items: center;
   width: 100%;
   height: calc(100vh - 110px);
-  background: -webkit-gradient(linear, left top, right top, from(#3d71a2), to(#a4cff8));
-  background: linear-gradient(to right, #3d71a2, #a4cff8);
 }
 
 .error-contaianer-logo {

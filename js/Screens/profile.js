@@ -1,10 +1,16 @@
 import { login, update } from "../api.js";
 import { awaitTimeout } from "../app_functionalities.js";
-import { getUserInfo, setUserInfo } from "../localStorage.js";
+import { clearUserInfo, getUserInfo, setUserInfo } from "../localStorage.js";
 import { header } from "./header.js";
 
 export const ProfileScreen = {
   async after_render() {
+    document.querySelector(".signout-btn").addEventListener("click", () => {
+      clearUserInfo();
+
+      document.location.hash = "/";
+    });
+
     const btn = document
       .querySelector(".profile-Form")
       .addEventListener("submit", async (event) => {
@@ -90,8 +96,12 @@ export const ProfileScreen = {
             <div class="form-btn">
               <button class="Btn">Submit</button>
             </div>
-          </form>
-        
+
+            
+            </form>
+            <div class="cont_signout-btn" >
+              <button class="signout-btn">Sign Out</button>
+            </div>
         </div>
       </div>
     </div>

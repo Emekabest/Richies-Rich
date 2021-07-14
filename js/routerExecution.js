@@ -53,8 +53,8 @@ const routerExecution = {
       const screen = route[parseUrl] ? route[parseUrl] : errorPageScreen;
       // const Page = await screen.render();
       const getScreen = async () => {
-        checkAwaitTimeout = true;
         const RenderScreen = screen.render(cardHtml);
+        checkAwaitTimeout = true;
         return RenderScreen;
       };
       // console.log(await screen.render());

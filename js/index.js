@@ -4,23 +4,23 @@ import { Product } from "./Screens/ProductScreen.js";
 import { ProductCards } from "./templateConstructor.js";
 import { removeFromCart } from "./Screens/cartScreen.js";
 import { awaitTimeout } from "./app_functionalities.js";
+import { parseRequest_url } from "./utlis.js";
 
 const cardHtml = await cards_section.render();
 
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
 
-console.log(checkAwaitTimeout);
+setInterval(() => {}, 500);
 
-const Interval = (boolean, FuncTion) => {
-  console.log(boolean);
+const Interval = (FuncTion) => {
   const TimeOut = setInterval(() => {
-    if (boolean) {
-      console.log(boolean);
+    console.log(checkAwaitTimeout);
+    if (checkAwaitTimeout) {
       FuncTion();
       clearInterval(TimeOut);
     }
-  }, 500);
+  }, 800);
 };
 //RelatedItems usabilities
 //RelatedItems usabilities
@@ -94,7 +94,7 @@ function homeScreenusabilities() {
 }
 // awaitTimeout(homeScreenusabilities);
 
-Interval(checkAwaitTimeout, homeScreenusabilities);
+Interval(homeScreenusabilities);
 
 //Homescreen usabilities
 //Homescreen usabilities
@@ -112,16 +112,36 @@ const psAfter_render = () => {
     console.log(btn);
     btn
       ? btn.addEventListener("click", () => {
-          document.location.hash = `/carts/${Product.slug}`;
+          const radioSizes = document.querySelector(
+            `input[name="product-size"]:checked`
+          );
+          const productQty = document.querySelector(".product-qty");
 
-          localStorage.setItem("num", "101");
+          const size_name =
+            radioSizes.parentElement.parentElement.children[1].children[0].textContent
+              .replace(":", "")
+              .trim();
+
+          const abrev = size_name.includes("Extra")
+            ? "El"
+            : size_name.includes("Large")
+            ? "L"
+            : "S";
+
+          console.log(abrev);
+
+          const slug = `${Product.slug}?${radioSizes.value}-${abrev}`;
+
+          console.log(slug);
+          localStorage.setItem("product-qty", productQty.value);
+          document.location.hash = `/carts/${slug}`;
         })
       : "";
   });
 };
 // awaitTimeout(psAfter_render);
 
-Interval(checkAwaitTimeout, psAfter_render);
+Interval(psAfter_render);
 
 //#################################################################################
 
@@ -133,51 +153,8 @@ Interval(checkAwaitTimeout, psAfter_render);
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 
-const meals = [
-  {
-    name: "shaw",
-    category: "red",
-  },
-  {
-    name: "mang",
-    category: "blue",
-  },
-  {
-    name: "meak",
-    category: "red",
-  },
-  {
-    name: "keel",
-    category: "blue",
-  },
-  {
-    name: "mea",
-    category: "yellow",
-  },
-  {
-    name: "pea",
-    category: "yellow",
-  },
-];
+const p = 5;
 
-const seperateMeals = [];
-
-for (let i = 0; i < meals.length; i++) {
-  const meal = meals[i];
-
-  const existmeal = seperateMeals.find((arry) => {
-    return arry[0].category === meal.category;
-  });
-
-  if (!existmeal) {
-    const arr = [];
-
-    for (let j = 0; j < meals.length; j++) {
-      if (meal.category === meals[j].category) {
-        arr.push(meals[j]);
-      }
-    }
-
-    seperateMeals.push(arr);
-  }
-}
+const k = [...Array(p).keys()].map((num) => {
+  console.log(num + 1);
+});

@@ -807,14 +807,56 @@ body {
   flex: end;
 
   &Content_measureMent-box {
-    text-align: center;
-    border: 1px solid #000;
-    height: 90px;
+    border: 1px solid #0000007c;
+    min-height: 90px;
     margin-bottom: 10px;
+    padding: 7px;
+    & h3 {
+      color: #333;
+    }
+
+    &-measurement-tag {
+      display: flex;
+      &-radio {
+        padding: 6px 5px;
+      }
+      &-size {
+        display: flex;
+        padding: 5px 0px;
+      }
+    }
+
+    &-qty {
+      display: flex;
+      justify-content: flex-end;
+
+      &Inner {
+        padding-bottom: 10px;
+        display: flex;
+        & select {
+          margin-right: 8px;
+          width: 50px;
+          height: 30px;
+          color: black;
+          // background-color: #6ca6dd;
+          border: none;
+          outline: none;
+          box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.124);
+          font-weight: bold;
+        }
+        & h2 {
+          font-size: 15px;
+          padding: 5.5px 9px;
+        }
+        & h4 {
+          padding-top: 5.5px;
+        }
+      }
+    }
   }
 
   &Content_description-box {
-    border: 1px solid #000;
+    border: 1px solid #0000007c;
     height: 90px;
     margin-bottom: 10px;
     text-align: center;

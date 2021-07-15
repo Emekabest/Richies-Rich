@@ -61,3 +61,16 @@ export const getPayment = () => {
     ? JSON.parse(localStorage.getItem("payment-method"))
     : { payment_method: "" };
 };
+
+export const getProductDetails = () => {
+  return localStorage.getItem("product-EditDetails")
+    ? JSON.parse(localStorage.getItem("product-EditDetails"))
+    : { slug: "", size_name: "", qty: "" };
+};
+
+export const setProductDetails = ({ slug, size_name, qty }) => {
+  localStorage.setItem(
+    "product-EditDetails",
+    JSON.stringify({ slug, size_name, qty })
+  );
+};

@@ -1,4 +1,9 @@
-import { getCartItems, getUserInfo, setCartItems } from "../localStorage.js";
+import {
+  getCartItems,
+  getUserInfo,
+  setCartItems,
+  setProductDetails,
+} from "../localStorage.js";
 import { parseRequest_url, redirectUser } from "../utlis.js";
 import { get } from "../http.js";
 import { getDiscount } from "../app_functionalities.js";
@@ -71,19 +76,28 @@ export const cartScreen = {
     const cartItemsArry = getCartItems();
 
     if (request.slug) {
-      const product = allProducts.find((x) => x.slug === request.slug);
+      const slug = request.slug.split("?");
+      const product = allProducts.find((x) => x.slug === slug[0]);
 
       addToCart({
-        slug: product.slug,
+        slug: request.slug,
         name: product.name,
         image: product.image,
         discount_price: product.discount_price,
         recent_price: product.recent_price,
         main_price: getDiscount(product.recent_price, product.discount_price),
         countInStock: product.countInStock ? product.countInStock : 1,
-        qty: product.qty ? product.qty : 1,
+        qty: Number(localStorage.getItem("product-qty")),
+        size: slug[1],
+        mainSlug: slug[0],
       });
     }
+
+    setProductDetails({
+      slug: cartItemsArry.slug,
+      size_name: cartItemsArry.size,
+      qty: cartItemsArry.qty,
+    });
 
     const getCartHtmlStrings = async () => {
       let mainCartItemsString = "";
@@ -124,7 +138,17 @@ export const cartScreen = {
                        <div
                       class="cart-boxInner_Productcard_leftInner-bottom_size"
                     >
-                      <a>Size: 178 X 190  </a> 
+                      <a>Size: ${cartItem.size.split("-")[0]} (${
+          cartItem.size.split("-")[1] === "L"
+            ? "Large"
+            : cartItem.size.split("-")[1] === "El"
+            ? "Extra-Large"
+            : "Small"
+        })  </a>
+
+        <div>
+        <p>Qty: ${cartItem.qty}</p>
+        </div>
                     </div>
                   </div>
                 </div>
@@ -179,7 +203,10 @@ ${
  
             <h3>Subtotal (${cartItemsArry.reduce((a, c) => a + c.qty, 0)} ${
         cartItemsArry.length <= 1 ? `item` : `items`
-      }):&#8358 ${cartItemsArry.reduce((a, c) => a + c.main_price, 0)}.00</h3>
+      }):&#8358 ${cartItemsArry.reduce(
+        (a, c) => a + c.main_price * c.qty,
+        0
+      )}.00</h3>
 
           </section>
           <section class="checkout-box_btn">

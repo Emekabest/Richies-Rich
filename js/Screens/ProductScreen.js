@@ -1,6 +1,6 @@
 import { currency_sign, getDiscount } from "../app_functionalities.js";
 import { get } from "../http.js";
-import { getCartItems, getProductDetails } from "../localStorage.js";
+import { getCartItems } from "../localStorage.js";
 import { checkAwaitTimeout } from "../routerExecution.js";
 import { ProductCards } from "../templateConstructor.js";
 import { parseRequest_url } from "../utlis.js";
@@ -41,7 +41,6 @@ class ProductScreen {
         ? parseRequest_url().slug.split("?")[1]
         : "";
 
-      console.log(splittedSlug);
       radioTxt_p.forEach((e) => {
         if (splittedSlug) {
           const checkRadioInput =
@@ -49,7 +48,9 @@ class ProductScreen {
             splittedSlug.split("-")[1].trim()
               ? splittedSlug.split("-")[1].trim()
               : "";
+
           if (checkRadioInput) {
+            console.log("ok radio");
             const radioInput =
               e.parentElement.parentElement.children[0].children[0];
             radioInput.checked = true;
@@ -249,7 +250,7 @@ class ProductScreen {
                     </div>
 
                     <div class="right-barContent_addButton">
-                      <a> <button class="btn">ADD <i class="fas fa-cart-plus"></i></button> </a>
+                      <a> <button class="addtocart-btn">ADD <i class="fas fa-cart-plus"></i></button> </a>
                     </div>
                   </div>
                 </section>
@@ -276,9 +277,7 @@ class ProductScreen {
       this.product.main_price
     } </h1>
                       </span>
-
                     </div>
-
                     <div class="right-bar2Content-left_Product-details">
                       <div class="right-bar2Content-left_Product-details_image-tag">
                         <div class="right-bar2Content-left_image-tag-inner">
@@ -294,8 +293,44 @@ class ProductScreen {
                   
                   <div class = right-bar2Content-right>
                     <div class="right-bar2Content-right_measureMent-box">
-                      MeasureMent Box
-                    </div>
+                          <center>  <h3>Measurement </h3> </center>
+
+                      <div class="right-bar2Content-right_measureMent-box-measurement-tag">
+                      <div class = "right-bar2Content-right_measureMent-box-measurement-tag-radio">  <input type=radio name= "product-size" id="small" value="13"> </div>
+                      <label class = "right-bar2Content-right_measureMent-box-measurement-tag-size" for = "small">  <p class = "radio-txt"> Small : </p> <h4> 13</h4> </label> 
+                      </div>
+
+                      <div class="right-bar2Content-right_measureMent-box-measurement-tag">
+                        <div class = "right-bar2Content-right_measureMent-box-measurement-tag-radio"><input type = radio name= "product-size" id="large"  value="20"> </div>
+                        <label class = "right-bar2Content-right_measureMent-box-measurement-tag-size" for = "large">  <p class = "radio-txt" > Large : </p> <h4> 20</h4> </label> 
+                        </div>
+                        
+                        <div class="right-bar2Content-right_measureMent-box-measurement-tag">
+                        <div class = "right-bar2Content-right_measureMent-box-measurement-tag-radio"><input type = radio name= "product-size" id="extra-large" value="30"> </div>
+                        <label class = "right-bar2Content-right_measureMent-box-measurement-tag-size" for = "extra-large">  <p class = "radio-txt" > Extra-Large : </p> <h4> 30</h4> </label> 
+                      </div>
+                    
+                      <div class = "right-bar2Content-right_measureMent-box-qty">
+                      <div class = "right-bar2Content-right_measureMent-box-qtyInner">
+                      <h2>Quantity:</h2>
+
+                       <select class = "product-qty" id = "">
+                       ${console.log(this.product.qty)}
+                            ${[...Array(this.product.countInStock).keys()].map(
+                              (x) =>
+                                this.product.qty === x + 1
+                                  ? `<option selected value="${x + 1}">${
+                                      x + 1
+                                    }  </option>`
+                                  : `<option value="${x + 1}"> ${
+                                      x + 1
+                                    } </option>`
+                            )}
+                    
+                      </select>
+                      <h4> Pcs </h4>
+                       </div>
+                       </div>                    </div>
 
                     <div class="right-bar2Content-right_description-box">
                       <article>Description-Tag</article>
@@ -304,7 +339,7 @@ class ProductScreen {
               
               </div>
               <div class="right-bar2Content-right_addButton">
-                <a> <button class="btn">ADD <i class="fas fa-cart-plus"></i></button> </a>
+                <a> <button class="addtocart-btn">ADD <i class="fas fa-cart-plus"></i></button> </a>
               </div>
 
                 </div>

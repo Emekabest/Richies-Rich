@@ -12,6 +12,12 @@
   }
 }
 
+@mixin tabSize860 {
+  @media screen and (max-width: 860px) {
+    @content;
+  }
+}
+
 @mixin tabSize1030 {
   @media screen and (max-width: 1030px) {
     @content;
@@ -50,6 +56,12 @@
 
 @mixin tabSize565 {
   @media screen and(max-width:565px) {
+    @content;
+  }
+}
+
+@mixin tabSize530 {
+  @media screen and(max-width:530px) {
     @content;
   }
 }

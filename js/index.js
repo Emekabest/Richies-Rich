@@ -107,15 +107,14 @@ Interval(homeScreenusabilities);
 //productScreen usabilities
 
 const psAfter_render = () => {
-  const btns = document.querySelectorAll(".btn");
+  const btns = document.querySelectorAll(".addtocart-btn");
   btns.forEach((btn) => {
-    console.log(btn);
     btn
       ? btn.addEventListener("click", () => {
           const radioSizes = document.querySelector(
             `input[name="product-size"]:checked`
           );
-          const productQty = document.querySelector(".product-qty");
+          const productQty = document.querySelectorAll(".product-qty");
 
           const size_name =
             radioSizes.parentElement.parentElement.children[1].children[0].textContent
@@ -128,12 +127,12 @@ const psAfter_render = () => {
             ? "L"
             : "S";
 
-          console.log(abrev);
-
           const slug = `${Product.slug}?${radioSizes.value}-${abrev}`;
 
-          console.log(slug);
-          localStorage.setItem("product-qty", productQty.value);
+          productQty.forEach((e) => {
+            localStorage.setItem("product-qty", e.value);
+          });
+
           document.location.hash = `/carts/${slug}`;
         })
       : "";

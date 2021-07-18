@@ -49,10 +49,10 @@ export const setShippingInfo = ({
 export const getShippingInfo = () => {
   return localStorage.getItem("shippingInfo")
     ? JSON.parse(localStorage.getItem("shippingInfo"))
-    : { address: "", city: "", postalcode: "", country: "" };
+    : { address: "kwilikwili", city: "", postalcode: "", country: "" };
 };
 
-export const setPayment = ({ payment_method = "1" }) => {
+export const setPayment = ({ payment_method = "" }) => {
   localStorage.setItem("payment-method", JSON.stringify({ payment_method }));
 };
 
@@ -62,15 +62,15 @@ export const getPayment = () => {
     : { payment_method: "" };
 };
 
-export const getProductDetails = () => {
-  return localStorage.getItem("product-EditDetails")
-    ? JSON.parse(localStorage.getItem("product-EditDetails"))
-    : { slug: "", size_name: "", qty: "" };
-};
+// export const getProductDetails = () => {
+//   return localStorage.getItem("product-EditDetails")
+//     ? JSON.parse(localStorage.getItem("product-EditDetails"))
+//     : { slug: "", size_name: "", qty: "" };
+// };
 
-export const setProductDetails = ({ slug, size_name, qty }) => {
-  localStorage.setItem(
-    "product-EditDetails",
-    JSON.stringify({ slug, size_name, qty })
-  );
-};
+// export const setProductDetails = ({ slug, size_name, qty }) => {
+//   localStorage.setItem(
+//     "product-EditDetails",
+//     JSON.stringify({ slug, size_name, qty })
+//   );
+// };

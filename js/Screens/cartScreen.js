@@ -1,9 +1,4 @@
-import {
-  getCartItems,
-  getUserInfo,
-  setCartItems,
-  setProductDetails,
-} from "../localStorage.js";
+import { getCartItems, getUserInfo, setCartItems } from "../localStorage.js";
 import { parseRequest_url, redirectUser } from "../utlis.js";
 import { get } from "../http.js";
 import { getDiscount } from "../app_functionalities.js";
@@ -29,7 +24,7 @@ export const removeFromCart = async (slug) => {
 
   setCartItems(filtered);
 
-  console.log(getCartItems());
+  // console.log(getCartItems());
 
   if (slug === parseRequest_url().slug) {
     document.location.hash = "/carts/";
@@ -136,8 +131,8 @@ export const cartScreen = {
                     </div>
 
                        <div
-                      class="cart-boxInner_Productcard_leftInner-bottom_size"
-                    >
+                      class="cart-boxInner_Productcard_leftInner-bottom_size">
+
                       <a>Size: ${cartItem.size.split("-")[0]} (${
           cartItem.size.split("-")[1] === "L"
             ? "Large"
@@ -162,6 +157,7 @@ export const cartScreen = {
                 <div class="cart-boxInner_Productcard_right_delete" id="${
                   cartItem.slug
                 }">
+                
                     <i class="fas fa-trash-alt"></i>
                 </div>
               </div>

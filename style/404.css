@@ -45,21 +45,6 @@
   font-weight: bolder;
 }
 
-.btn {
-  outline: none;
-  border: none;
-  background-color: #6ca6dd;
-  color: white;
-  font-weight: bolder;
-  height: 30px;
-  border-radius: 3px;
-  width: 100px;
-  -webkit-transition: background-color 1s, -webkit-box-shadow 1s;
-  transition: background-color 1s, -webkit-box-shadow 1s;
-  transition: background-color 1s, box-shadow 1s;
-  transition: background-color 1s, box-shadow 1s, -webkit-box-shadow 1s;
-}
-
 .btn:hover {
   background-color: #4791d6;
   -webkit-box-shadow: 3px 3px 3px #98c3ec;

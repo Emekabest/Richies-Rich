@@ -151,9 +151,3 @@ Interval(psAfter_render);
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
-
-const p = 5;
-
-const k = [...Array(p).keys()].map((num) => {
-  console.log(num + 1);
-});

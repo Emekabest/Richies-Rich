@@ -24,8 +24,6 @@ export const removeFromCart = async (slug) => {
 
   setCartItems(filtered);
 
-  // console.log(getCartItems());
-
   if (slug === parseRequest_url().slug) {
     document.location.hash = "/carts/";
   } else {
@@ -87,12 +85,6 @@ export const cartScreen = {
         mainSlug: slug[0],
       });
     }
-
-    setProductDetails({
-      slug: cartItemsArry.slug,
-      size_name: cartItemsArry.size,
-      qty: cartItemsArry.qty,
-    });
 
     const getCartHtmlStrings = async () => {
       let mainCartItemsString = "";

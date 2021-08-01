@@ -1,6 +1,23 @@
-import { getCartItems, getPayment, getShippingInfo } from "../localStorage.js";
+import { createOrder } from "../api.js";
+import {
+  cleanCart,
+  getCartItems,
+  getPayment,
+  getShippingInfo,
+} from "../localStorage.js";
+import { checkAwaitTimeout } from "../routerExecution.js";
 import { CheckoutSteps } from "../utlis.js";
 import { header } from "./header.js";
+
+const Interval = (FuncTion) => {
+  const TimeOut = setInterval(() => {
+    console.log(checkAwaitTimeout);
+    if (checkAwaitTimeout) {
+      FuncTion();
+      clearInterval(TimeOut);
+    }
+  }, 300);
+};
 
 const convertCartToOrder = () => {
   const orderItems = getCartItems();
@@ -39,7 +56,24 @@ const convertCartToOrder = () => {
 };
 
 export const PlaceOrderScreen = {
-  after_render() {},
+  after_render() {
+    document
+      .querySelector("#place-order-btn")
+      .addEventListener("click", async () => {
+        const order = convertCartToOrder();
+        const data = await createOrder(order);
+        console.log(order);
+
+        if (data.error) {
+          console.log("cool");
+          alert(data.error);
+        } else {
+          // cleanCart();
+          console.log(data);
+          // document.location.hash = `/order/${data.order.id}`;
+        }
+      });
+  },
 
   render() {
     const {
@@ -50,6 +84,8 @@ export const PlaceOrderScreen = {
       payment,
       shipping,
     } = convertCartToOrder();
+
+    Interval(this.after_render);
 
     return `  <div class="container">
      
@@ -70,14 +106,13 @@ export const PlaceOrderScreen = {
       step4: true,
     })}
 
-
   <div class="all-orders">
       <div class="all-ordersInner">
         <div class="all-ordersInnerLeft">
           <div class="all-ordersInnerLeft_shipping">
             <li class="all-ordersInnerLeft_shippingTop"><h2>Shipping</h2></li>
             <li class="all-ordersInnerLeft_shippingButtom">
-              <h4>19 koki street, laggon, ibadan</h4>
+              <h4>${shipping.address}</h4>
             </li>
           </div>
           <div class="all-ordersInnerLeft_payment">
@@ -85,7 +120,7 @@ export const PlaceOrderScreen = {
               <h2>Payment</h2>
             </li>
             <li class="all-ordersInnerLeft_paymentButtom">
-              <h4>Payment Method : Paypal</h4>
+              <h4>Payment Method : ${payment.payment_method}</h4>
             </li>
           </div>
 
@@ -111,18 +146,21 @@ export const PlaceOrderScreen = {
 
                 <div class="cart-box">
                   <div class="cart-boxInner">
-                  
-                    <div class="cart-boxInner_Productcard">
+                  ${orderItems
+                    .map((item) => {
+                      return `   <div class="cart-boxInner_Productcard">
                          <div class="cart-boxInner_Productcard_left Productcard_inner">
                            <div class="cart-boxInner_Productcard_leftInner-img">
            
-                               <img src="./MyStory11.jpg" alt="">
+                               <img src="./image/${item.image}" alt="">
            
                            </div>
            
                            <div class="cart-boxInner_Productcard_leftInner">
                              <div class="cart-boxInner_Productcard_leftInner-top">
-                               <a>Huani</a>
+                               <a class="placeOrder-product-name">${
+                                 item.name
+                               }</a>
                              </div>
            
                              <div class="cart-boxInner_Productcard_leftInner-bottom">
@@ -135,10 +173,18 @@ export const PlaceOrderScreen = {
                                   <div
                                  class="cart-boxInner_Productcard_leftInner-bottom_size"
                                >
-                                 <a> Size:  30 (Large) </a>
+                                 <a> Size:  ${item.size.split("-")[0]} (${
+                        item.size.split("-")[1] === "L"
+                          ? "Large"
+                          : item.size.split("-")[1] === "El"
+                          ? "Extra-Large"
+                          : item.size.split("-")[1] === "S"
+                          ? "Small"
+                          : ""
+                      }) </a>
            
                              <div>
-                             <p>  Qty:5</p>
+                             <p>  Qty:${item.qty}</p>
                              </div>
                                </div>
                              </div>
@@ -147,19 +193,18 @@ export const PlaceOrderScreen = {
            
                          <div class="cart-boxInner_Productcard_right Productcard_inner">
                            <span class="cart-boxInner_Productcard_right_price">
-                             <h3>&#8358 15000</h3>
+                             <h3>&#8358 ${item.main_price}</h3>
                            </span>
                       
                          </div>
-                       </div>
-               
-                   
+                       </div>`;
+                    })
+                    .join("\n")}
+                      
                 </div>
                 </div>
               </div>
 
-
-              
             </div>
           </div>
         </div>
@@ -173,12 +218,12 @@ export const PlaceOrderScreen = {
 
               <li class="all-ordersInnerRightInner_productDetail_li"> 
                 <div class="all-ordersInnerRightInner_productDetail_li_left"><h4>Items</h4></div>
-                <div class="all-ordersInnerRightInner_productDetail_li_right"><h4>&#8358 2000</h4></div>
+                <div class="all-ordersInnerRightInner_productDetail_li_right"><h4>&#8358 ${ItemPrices}</h4></div>
               </li>
 
               <li class="all-ordersInnerRightInner_productDetail_li"> 
                 <div class="all-ordersInnerRightInner_productDetail_li_left"><h4>Shipping</h4></div>
-                <div class="all-ordersInnerRightInner_productDetail_li_right"><h4>&#8358 2000</h4></div>
+                <div class="all-ordersInnerRightInner_productDetail_li_right"><h4>&#8358 ${ShippingPrice}</h4></div>
               </li>
 
               <li class="all-ordersInnerRightInner_productDetail_li"> 
@@ -191,13 +236,13 @@ export const PlaceOrderScreen = {
             <div class="all-ordersInnerRightInner_orderTotal">
               <li class="all-ordersInnerRightInner_orderTotal_li">
                 <div class="all-ordersInnerRightInner_orderTotal_li_left"><h2>Order Total</h2></div>
-                <div class="all-ordersInnerRightInner_orderTotal_li_right"> <h3> &#8358 100000</h3></div>
+                <div class="all-ordersInnerRightInner_orderTotal_li_right"> <h3> &#8358 ${TotalPrice}</h3></div>
               </li>
 
             </div>
             <div class="all-ordersInnerRightInner_placeOrder">
               <div class="all-ordersInnerRightInner_placeOrder_btn">
-                <button>Place Order</button>
+                <button id="place-order-btn">Place Order</button>
               </div>
             </div>
           </div>

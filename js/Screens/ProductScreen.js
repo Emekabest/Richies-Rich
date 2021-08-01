@@ -63,8 +63,6 @@ class ProductScreen {
 
     const slug = parseRequest_url().slug;
 
-    const productItems = getProductDetails();
-
     const cartItems = getCartItems();
     const product = cartItems.find((item) => item.slug === slug);
 
@@ -75,7 +73,6 @@ class ProductScreen {
     }
 
     return ` <div class="container">
-
           ${header.renderSmallView()}
 
       <div class="right-Container">

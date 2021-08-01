@@ -151,3 +151,37 @@ Interval(psAfter_render);
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
+
+//#############################################
+
+function faqPageSetup() {
+  let questionBtn = document.querySelectorAll(".Return-container-contentTxtQ");
+
+  questionBtn.forEach((element) => {
+    let toogle = false;
+    element.addEventListener("click", (event) => {
+      const div = element.parentElement.children[0].children[1];
+
+      console.log("cool");
+      // console.log(event.target.children[]);
+      element.parentElement.children[1].style.display = "block";
+
+      if (!toogle) {
+        element.parentElement.children[1].style.display = "block";
+        div.innerHTML = `
+                <i class=" fas fa-minus Return-container-contentTxtQFont"></i> `;
+
+        toogle = true;
+      } else {
+        element.parentElement.children[1].style.display = "none";
+        div.innerHTML = `
+                <i class=" fas fa-plus Return-container-contentTxtQFont"></i> `;
+        toogle = false;
+      }
+    });
+  });
+}
+
+Interval(faqPageSetup);
+
+//#############################################

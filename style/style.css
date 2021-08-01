@@ -1422,7 +1422,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 50vh;
+  height: auto;
 }
 
 .footer-container {
@@ -1431,11 +1431,12 @@ body {
   display: flex;
   width: 90%;
   height: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 .label-logo-name-h3 {
@@ -1448,6 +1449,7 @@ body {
 
 .mediafont {
   display: inline-block;
+  font-size: 20px;
   color: #e0dddd;
 }
 
@@ -1523,62 +1525,6 @@ body {
   width: 100%;
   background-color: whitesmoke;
   text-align: center;
-}
-
-@media screen and (max-width: 772px) {
-  .footer {
-    height: 35vh;
-  }
-  .label,
-  .customer-care,
-  .about,
-  .footer-latestregister {
-    margin: 0 20px 0 0;
-  }
-  .label-logo-name {
-    font-size: 9px;
-  }
-  .customer-care {
-    font-size: 11px;
-  }
-  .about {
-    font-size: 11px;
-  }
-  .latestfont {
-    font-size: 11px;
-  }
-  .footer-latest-btn {
-    width: 100px;
-    height: 30px;
-  }
-}
-
-@media screen and (max-width: 459px) {
-  .label,
-  .customer-care,
-  .about,
-  .footer-latestregister {
-    margin: 0 20px 0 0;
-  }
-  .label-logo-name {
-    font-size: 8px;
-  }
-  .copyright-box-txt {
-    font-size: 10px;
-  }
-  .customer-care {
-    font-size: 10px;
-  }
-  .about {
-    font-size: 10px;
-  }
-  .latestfont {
-    font-size: 8px;
-  }
-  .footer-latest-btn {
-    width: 100px;
-    height: 30px;
-  }
 }
 
 .progress-cont {

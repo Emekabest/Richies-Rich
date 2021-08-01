@@ -49,10 +49,10 @@ export const setShippingInfo = ({
 export const getShippingInfo = () => {
   return localStorage.getItem("shippingInfo")
     ? JSON.parse(localStorage.getItem("shippingInfo"))
-    : { address: "", city: "", postalcode: "", country: "" };
+    : { address: "kwilikwili", city: "", postalcode: "", country: "" };
 };
 
-export const setPayment = ({ payment_method = "1" }) => {
+export const setPayment = ({ payment_method = "" }) => {
   localStorage.setItem("payment-method", JSON.stringify({ payment_method }));
 };
 
@@ -60,4 +60,8 @@ export const getPayment = () => {
   return localStorage.getItem("payment-method")
     ? JSON.parse(localStorage.getItem("payment-method"))
     : { payment_method: "" };
+};
+
+export const cleanCart = () => {
+  localStorage.removeItem("cartItems");
 };

@@ -68,7 +68,6 @@ export const LoginScreen = {
               />
             </div>
 
-    
             <div class="form-btn">
               <button class="Btn">Submit</button>
             </div>
@@ -81,10 +80,7 @@ export const LoginScreen = {
       </div>
     </div>
     </div>
-
     </div>
-       
-    
     `;
   },
 };

@@ -16,7 +16,7 @@ export const errorPageScreen = {
             <div class="productMain-content">
               <main class="mai-area">
               
-               <div class="error-container">
+               <div class="error-container">  
     <div class="error-container-box">
       <div class="error-contaianer-logo">
         <img src="../image/errormsg.jpg" class="error-img" alt="">

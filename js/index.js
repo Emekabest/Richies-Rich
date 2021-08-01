@@ -4,24 +4,24 @@ import { Product } from "./Screens/ProductScreen.js";
 import { ProductCards } from "./templateConstructor.js";
 import { removeFromCart } from "./Screens/cartScreen.js";
 import { awaitTimeout } from "./app_functionalities.js";
-
-console.log(checkAwaitTimeout);
-
-const Interval = (boolean, FuncTion) => {
-  const TimeOut = setInterval(() => {
-    console.log("boolean");
-    if (boolean) {
-      FuncTion();
-      clearInterval(TimeOut);
-    }
-  }, 500);
-};
+import { parseRequest_url } from "./utlis.js";
 
 const cardHtml = await cards_section.render();
 
 export const mainContainer_div = document.querySelector(".main-container");
 routerExecution.render(cardHtml);
 
+setInterval(() => {}, 500);
+
+const Interval = (FuncTion) => {
+  const TimeOut = setInterval(() => {
+    console.log(checkAwaitTimeout);
+    if (checkAwaitTimeout) {
+      FuncTion();
+      clearInterval(TimeOut);
+    }
+  }, 800);
+};
 //RelatedItems usabilities
 //RelatedItems usabilities
 //RelatedItems usabilities
@@ -94,7 +94,7 @@ function homeScreenusabilities() {
 }
 // awaitTimeout(homeScreenusabilities);
 
-Interval(checkAwaitTimeout, homeScreenusabilities);
+Interval(homeScreenusabilities);
 
 //Homescreen usabilities
 //Homescreen usabilities
@@ -107,21 +107,40 @@ Interval(checkAwaitTimeout, homeScreenusabilities);
 //productScreen usabilities
 
 const psAfter_render = () => {
-  const btns = document.querySelectorAll(".btn");
+  const btns = document.querySelectorAll(".addtocart-btn");
   btns.forEach((btn) => {
-    console.log(btn);
     btn
       ? btn.addEventListener("click", () => {
-          document.location.hash = `/carts/${Product.slug}`;
+          const radioSizes = document.querySelector(
+            `input[name="product-size"]:checked`
+          );
+          const productQty = document.querySelectorAll(".product-qty");
 
-          localStorage.setItem("num", "101");
+          const size_name =
+            radioSizes.parentElement.parentElement.children[1].children[0].textContent
+              .replace(":", "")
+              .trim();
+
+          const abrev = size_name.includes("Extra")
+            ? "El"
+            : size_name.includes("Large")
+            ? "L"
+            : "S";
+
+          const slug = `${Product.slug}?${radioSizes.value}-${abrev}`;
+
+          productQty.forEach((e) => {
+            localStorage.setItem("product-qty", e.value);
+          });
+
+          document.location.hash = `/carts/${slug}`;
         })
       : "";
   });
 };
 // awaitTimeout(psAfter_render);
 
-Interval(checkAwaitTimeout, psAfter_render);
+Interval(psAfter_render);
 
 //#################################################################################
 
@@ -133,51 +152,36 @@ Interval(checkAwaitTimeout, psAfter_render);
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 //Checkout!!!!!!!!!!!!!!!!!!!!!!!!
 
-const meals = [
-  {
-    name: "shaw",
-    category: "red",
-  },
-  {
-    name: "mang",
-    category: "blue",
-  },
-  {
-    name: "meak",
-    category: "red",
-  },
-  {
-    name: "keel",
-    category: "blue",
-  },
-  {
-    name: "mea",
-    category: "yellow",
-  },
-  {
-    name: "pea",
-    category: "yellow",
-  },
-];
+//#############################################
 
-const seperateMeals = [];
+function faqPageSetup() {
+  let questionBtn = document.querySelectorAll(".Return-container-contentTxtQ");
 
-for (let i = 0; i < meals.length; i++) {
-  const meal = meals[i];
+  questionBtn.forEach((element) => {
+    let toogle = false;
+    element.addEventListener("click", (event) => {
+      const div = element.parentElement.children[0].children[1];
 
-  const existmeal = seperateMeals.find((arry) => {
-    return arry[0].category === meal.category;
-  });
+      console.log("cool");
+      // console.log(event.target.children[]);
+      element.parentElement.children[1].style.display = "block";
 
-  if (!existmeal) {
-    const arr = [];
+      if (!toogle) {
+        element.parentElement.children[1].style.display = "block";
+        div.innerHTML = `
+                <i class=" fas fa-minus Return-container-contentTxtQFont"></i> `;
 
-    for (let j = 0; j < meals.length; j++) {
-      if (meal.category === meals[j].category) {
-        arr.push(meals[j]);
+        toogle = true;
+      } else {
+        element.parentElement.children[1].style.display = "none";
+        div.innerHTML = `
+                <i class=" fas fa-plus Return-container-contentTxtQFont"></i> `;
+        toogle = false;
       }
-    }
-
-    seperateMeals.push(arr);
-  }
+    });
+  });
 }
+
+Interval(faqPageSetup);
+
+//#############################################

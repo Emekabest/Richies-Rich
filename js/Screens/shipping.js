@@ -15,7 +15,7 @@ export const ShippingScreen = {
       .addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const data = setShippingInfo({
+        setShippingInfo({
           address: document.querySelector("#address").value,
           city: document.querySelector("#city").value,
           postalcode: document.querySelector("#postalcode").value,
@@ -83,16 +83,10 @@ export const ShippingScreen = {
                 id="country"
               />
             </div>
-        
-          
-
-      
-
-
+    
             <div class="form-btn">
               <button class="Btn">Continue</button>
             </div>
-
             
             </form>
        

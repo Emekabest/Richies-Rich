@@ -15,6 +15,9 @@ import { KidsScreen } from "./Screens/kidsScreen.js";
 import { ShippingScreen } from "./Screens/shipping.js";
 import { PaymentScreen } from "./Screens/payment.js";
 import { PlaceOrderScreen } from "./Screens/placeOrderScreen.js";
+import OrdersPage from "./Screens/order.js";
+import { DeliveryScreen } from "./Screens/deliveryScreen.js";
+import { ReturnsAndRefunds } from "./Screens/returns-refund.js";
 
 // import { html } from "./lit-html";
 let checkAwaitTimeout = false;
@@ -40,7 +43,11 @@ const routerExecution = {
       "/shipping": ShippingScreen,
       "/payment": PaymentScreen,
       "/place-order": PlaceOrderScreen,
+      "/orders": OrdersPage,
+      "/delivery": DeliveryScreen,
+      "/return-and-refunds": ReturnsAndRefunds,
     };
+
     const router = async () => {
       const request = parseRequest_url();
       const parseUrl =
@@ -48,15 +55,20 @@ const routerExecution = {
         (request.slug ? `/:slug` : "") +
         (request.action ? `/${request.action}` : "");
 
-      console.log(parseUrl);
-
       const screen = route[parseUrl] ? route[parseUrl] : errorPageScreen;
       // const Page = await screen.render();
       const getScreen = async () => {
-        const RenderScreen = screen.render(cardHtml);
-        checkAwaitTimeout = true;
+        const RenderScreen = await screen.render(cardHtml);
+
+        const TimeOut = setInterval(() => {
+          if (RenderScreen) {
+            checkAwaitTimeout = true;
+            clearInterval(TimeOut);
+          }
+        }, 100);
         return RenderScreen;
       };
+
       // console.log(await screen.render());
 
       mainContainer_div.innerHTML = await getScreen();
@@ -75,7 +87,6 @@ const routerExecution = {
       const link = document.querySelectorAll(".linK");
       Array.from(link).forEach((element) => {
         element.addEventListener("click", (e) => {
-          console.log(element.href);
           getLinkToHash(element.id);
         });
       });

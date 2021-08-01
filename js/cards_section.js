@@ -10,10 +10,6 @@ const cards_section = {
 
     const allProducts = await get(herokuServer, localServer);
 
-    // const allProduct = allProducts();
-
-    console.log(allProducts);
-
     const allProduct_demo = [];
 
     for (let i = 0; i < allProducts.length; i++) {
@@ -46,10 +42,6 @@ const cards_section = {
 
     for (let i = 0; i < sections.length; i++) {
       cardHtml += ProductCards.getHTMLString(sections[i]);
-
-      // mainArea_main
-      //   ? (mainArea_main.innerHTML += ProductCards.getHTMLString(sections[i]))
-      //   : "";
     }
 
     return cardHtml;

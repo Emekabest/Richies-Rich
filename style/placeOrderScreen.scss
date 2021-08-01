@@ -1,0 +1,560 @@
+@import "./mediaQuery";
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.all-orders {
+  &Inner {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 20px;
+
+    &Left {
+      width: 75%;
+      margin: 0px 20px;
+
+      @include tabSize860 {
+        margin: 0px 0px;
+      }
+
+      @include tabSize530 {
+        margin: 0px 10px;
+      }
+
+      &_shipping {
+        margin: 1px 0px 9px 0px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #0000002f;
+        background-color: #6ca6dd0c;
+
+        & li {
+          color: #333333f0;
+          padding: 5px 9px;
+          font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+        }
+
+        &Top {
+          @include tabSize530 {
+            font-size: 12px;
+          }
+
+          @include phoneSize330 {
+            font-size: 10px;
+          }
+          & h2 {
+          }
+        }
+
+        &Buttom {
+          & h4 {
+            @include tabSize530 {
+              font-size: 13px;
+            }
+            @include phoneSize330 {
+              font-size: 10.2px;
+            }
+          }
+        }
+      }
+
+      &_payment {
+        margin: 1px 0px 9px 0px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #0000002f;
+        background-color: #6ca6dd0c;
+
+        & li {
+          color: #333333f0;
+          padding: 5px 9px;
+          font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+        }
+
+        &Top {
+          @include tabSize530 {
+            font-size: 12px;
+          }
+          @include phoneSize330 {
+            font-size: 10px;
+          }
+        }
+
+        &Buttom {
+          & h4 {
+            @include tabSize530 {
+              font-size: 13px;
+            }
+
+            @include phoneSize330 {
+              font-size: 10.2px;
+            }
+          }
+        }
+      }
+
+      &_shopping-cart {
+        margin: 9px 0px;
+        width: 100%;
+        min-height: 100px;
+        position: relative;
+        border-radius: 5px;
+        border: 1px solid #0000002f;
+        background-color: #6ca6dd0c;
+        padding: 0px 0px 3px 0px;
+
+        &_heading {
+          font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+          position: absolute;
+          width: 100%;
+          color: #333333f0;
+
+          &Inner {
+            padding: 5px;
+            display: flex;
+
+            &-left {
+              flex: 1;
+
+              @include tabSize530 {
+                font-size: 12px;
+              }
+
+              @include phoneSize330 {
+                font-size: 10px;
+                // background-color: red;
+              }
+            }
+
+            &-right {
+              flex: 1;
+              display: flex;
+              justify-content: flex-end;
+              margin-right: 10px;
+
+              @include tabSize530 {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        &_products {
+          overflow-y: auto;
+          max-height: 320px;
+          margin: 50px 0px 0px 0px;
+
+          @include tabSize530 {
+            margin: 35px 0px 0px 0px;
+          }
+        }
+      }
+
+      @include tabSize860 {
+        width: auto;
+      }
+    }
+
+    &Right {
+      height: calc(100vh - 45px);
+      min-width: 20.5rem;
+      border-radius: 5px;
+      border: 1px solid #0000002f;
+      background-color: #6ca6dd0c;
+
+      @include tabSize980 {
+        min-width: 18rem;
+      }
+
+      @include tabSize860 {
+        height: auto;
+      }
+
+      @include phoneSize330 {
+        min-width: 10rem;
+      }
+
+      &Inner {
+        padding: 20px 9px;
+
+        &_heading {
+          color: #333333f0;
+
+          & h2 {
+            @include tabSize530 {
+              font-size: 19px;
+            }
+          }
+        }
+
+        &_productDetail_li {
+          display: flex;
+          color: #333333f0;
+          margin: 10px 0px;
+          border: 1px solid #00000027;
+          padding: 5px 5px;
+          border-radius: 5px;
+
+          @include phoneSize330 {
+            font-size: 12px;
+          }
+
+          &_left {
+            flex: 1;
+          }
+          &_right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+
+        &_orderTotal {
+          &_li {
+            display: flex;
+            color: #009d1a;
+
+            &_left {
+              flex: 1;
+              @include phoneSize430 {
+                font-size: 11px;
+              }
+            }
+
+            &_right {
+              flex: 1;
+              display: flex;
+              justify-content: flex-end;
+              @include phoneSize430 {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        &_placeOrder_btn {
+          margin-top: 10px;
+          & button {
+            height: 38px;
+            width: 100%;
+            background-color: #6ca6dd;
+            outline: none;
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0px 0px 2px #000;
+
+            &:hover {
+              box-shadow: 0px 0px 5px #6ca6dd;
+            }
+
+            @include tabSize530 {
+              height: 32px;
+              border-radius: 11px;
+            }
+            @include phoneSize430 {
+              font-size: 12px;
+              height: 25px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    @include tabSize860 {
+      flex-direction: column;
+    }
+  }
+}
+
+.right-Container {
+  flex: 1 1 auto;
+
+  &_content-container {
+    @include phone_defaultSize {
+      margin-top: 120px;
+    }
+  }
+}
+
+.productMain-content {
+  &_heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7px;
+    & h2 {
+      font-size: 20px;
+    }
+    & h4 {
+      font-size: 15px;
+    }
+
+    @include tabSize565 {
+      & h2 {
+        font-size: 15px;
+      }
+      & h4 {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-empty {
+    height: calc(100vh - 120px);
+    display: grid;
+    place-items: center;
+
+    &Inner {
+      display: grid;
+      place-items: center;
+
+      & i {
+        color: crimson;
+        font-size: 80px;
+      }
+      & a {
+        color: rgba(0, 0, 0, 0.611);
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.cartContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 416px;
+
+  @include phone_defaultSize {
+    // null
+  }
+
+  .cart-box {
+    flex: 1;
+    padding: 0 9px;
+
+    &Inner {
+      border-top: 1px solid rgba(0, 0, 0, 0.09);
+
+      &_Productcard {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.165);
+        padding: 8px 8px;
+        display: flex;
+        justify-content: space-between;
+
+        @include phone_defaultSize {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 5px 5px;
+        }
+
+        &_left {
+          display: flex;
+          &Inner {
+            margin-left: 100px;
+            padding: 15px 0;
+
+            //Responsive Zone..............
+
+            @include tabSize565 {
+              margin-left: 30px;
+            }
+
+            @include phone_defaultSize {
+              margin-left: 9px;
+              padding: 10px 0;
+            }
+
+            &-top a {
+              font-size: 17px;
+              color: rgba(51, 51, 51, 0.789);
+              font-weight: bold;
+              // text-decoration: underline;
+
+              @include tabSize565 {
+                font-size: 15.4999995px;
+              }
+
+              @include phone_defaultSize {
+                font-size: 12.5px;
+              }
+            }
+
+            &-img {
+              height: 100px;
+              width: 100px;
+
+              & img {
+                border-radius: 8px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+              }
+              @include phone_defaultSize {
+                height: 75px;
+                width: 75px;
+              }
+              @include phoneSize330 {
+                height: 65px;
+                width: 65px;
+              }
+            }
+            &-bottom {
+              margin: 10px 0;
+              display: flex;
+
+              &_qty {
+                font-size: 15px;
+              }
+              &_size {
+                font-size: 14.5px;
+                // margin: 0 15px;
+
+                @include phone_defaultSize {
+                  font-size: 11.4px;
+                }
+              }
+            }
+          }
+        }
+
+        &_right {
+          position: relative;
+
+          &_price h3 {
+            font-size: 17px;
+
+            @include tabSize565 {
+              font-size: 15px;
+            }
+
+            @include phone_defaultSize {
+              font-size: 12px;
+            }
+          }
+
+          &_delete {
+            position: absolute;
+            right: 20px;
+            bottom: 0px;
+            cursor: pointer;
+
+            @include phone_defaultSize {
+              font-size: 12px;
+              right: 5px;
+            }
+
+            & i {
+              color: rgb(191, 4, 4);
+
+              &:hover {
+                transition: 1s;
+                color: rgb(131, 0, 0);
+              }
+            }
+          }
+        }
+
+        &Productcard_inner {
+          flex: 1;
+        }
+      }
+    }
+
+    @include tabSize1130 {
+      // flex: 0 0 94vw;
+    }
+  }
+
+  .checkout-main {
+    // width: 200px;
+    // display: flex;
+    // justify-content: center;
+    padding: 0px 40px;
+
+    .checkout-box {
+      width: 400px;
+      flex: 0 0 40vw;
+      // min-width: 400px;
+      border-radius: 5px;
+      background-color: #f0f0f0;
+      margin: 0px 20px;
+      padding: 10px;
+
+      &_allproduct_details {
+        & h3 {
+          @include tabSize750 {
+            font-size: 17px;
+          }
+
+          @include phoneSize330 {
+            font-size: 12px;
+          }
+          // @include tabSize600 {
+          //   font-size: 13px;
+          // }
+        }
+      }
+
+      &_btn {
+        margin-top: 20px;
+        justify-content: last baseline;
+        width: 100%;
+
+        & button {
+          margin-top: 30px;
+          cursor: pointer;
+          background-color: #6ca6dd;
+          font-size: 17px;
+          height: 35px;
+          width: 100%;
+          border: none;
+          border-radius: 10px;
+          color: #fff;
+          text-shadow: 1px 1px 2px #000;
+          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+          font-weight: bold;
+
+          @include tabSize750 {
+            height: 25px;
+            border-radius: 6px;
+            margin-top: 17px;
+          }
+          @include phoneSize330 {
+            margin-top: 1px;
+          }
+          @include phone_defaultSize {
+            font-size: 15px;
+            height: 22px;
+          }
+        }
+      }
+
+      @include tabSize1130 {
+        width: 100%;
+      }
+
+      @include tabSize750 {
+        flex: none;
+      }
+    }
+
+    @include tabSize1130 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 25px;
+    }
+  }
+}

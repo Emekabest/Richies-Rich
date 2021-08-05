@@ -68,6 +68,8 @@ export const cartScreen = {
 
     const cartItemsArry = await getCartItems();
 
+    console.log(cartItemsArry);
+
     if (request.slug) {
       const slug = request.slug.split("?");
       const product = allProducts.find((x) => x.slug === slug[0]);

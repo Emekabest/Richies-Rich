@@ -62,11 +62,11 @@ export const cartScreen = {
       "https://richies-rich1-commerce.herokuapp.com/api/products";
     const localServer = "http://localhost:5000/api/products";
 
-    const allProducts = await get(herokuServer, localServer);
+    const allProducts = await get(herokuServer);
 
     const request = parseRequest_url();
 
-    const cartItemsArry = getCartItems();
+    const cartItemsArry = await getCartItems();
 
     if (request.slug) {
       const slug = request.slug.split("?");
@@ -119,12 +119,12 @@ export const cartScreen = {
                       )}
                       )} -->
             
-                      </select> 
+                      </select>
+                      
                     </div>
 
-                       <div
-                      class="cart-boxInner_Productcard_leftInner-bottom_size">
-
+                       <div class="cart-boxInner_Productcard_leftInner-bottom_size">
+                            ${cartItem.size}
                       <a>Size: ${cartItem.size.split("-")[0]} (${
           cartItem.size.split("-")[1] === "L"
             ? "Large"

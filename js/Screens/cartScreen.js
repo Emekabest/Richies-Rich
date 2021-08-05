@@ -68,8 +68,6 @@ export const cartScreen = {
 
     const cartItemsArry = await getCartItems();
 
-    console.log(cartItemsArry);
-
     if (request.slug) {
       const slug = request.slug.split("?");
       const product = allProducts.find((x) => x.slug === slug[0]);
@@ -126,7 +124,6 @@ export const cartScreen = {
                     </div>
 
                        <div class="cart-boxInner_Productcard_leftInner-bottom_size">
-                            ${console.log(cartItem)}
                       <a>Size: ${cartItem.size.split("-")[0]} (${
           cartItem.size.split("-")[1] === "L"
             ? "Large"

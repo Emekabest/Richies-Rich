@@ -124,7 +124,7 @@ export const cartScreen = {
                     </div>
 
                        <div class="cart-boxInner_Productcard_leftInner-bottom_size">
-                            ${console.log(cartItem.size + "cool")}
+                            ${console.log(cartItem)}
                       <a>Size: ${cartItem.size.split("-")[0]} (${
           cartItem.size.split("-")[1] === "L"
             ? "Large"
